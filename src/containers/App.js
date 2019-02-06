@@ -1,16 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import DashboardAppBar from '../components/DashboardAppBar'
 import './App.css'
 
 const App = () => {
+  const [sideDrawer, setSideDrawer] = useState(false)
+
   return (
     <div>
-      <h1>Dashboard</h1>
-      <ul className='header'>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/studentDashboard'>Student Dashboard</a></li>
-        <li><a href='/instructorDashboard'>Instructor Dashboard</a></li>
-      </ul>
-      <div className='content' />
+      <DashboardAppBar />
     </div>
   )
 }
