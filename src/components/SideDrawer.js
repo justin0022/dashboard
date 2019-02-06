@@ -20,7 +20,7 @@ const styles = {
 }
 
 const sideDrawer = props => {
-  const { classes } = props
+  const { classes, toggleDrawer, sideDrawerState } = props
 
   const sideList = (
     <div className={classes.list}>
@@ -46,12 +46,12 @@ const sideDrawer = props => {
 
   return (
     <div>
-      <Drawer open={props.left}>
+      <Drawer open={props.sideDrawerState} onClose={() => toggleDrawer(!sideDrawerState)}>
         <div
           tabIndex={0}
           role='button'
-          // onClick={this.toggleDrawer('left', false)}
-          // onKeyDown={this.toggleDrawer('left', false)}
+          onClick={() => toggleDrawer(!sideDrawerState)}
+          onKeyDown={() => toggleDrawer(!sideDrawerState)}
         >
           {sideList}
         </div>

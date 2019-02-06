@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} />
-      <SideDrawer />
+      <SideDrawer toggleDrawer={setSideDrawerState} sideDrawerState={sideDrawerState} />
     </div>
   )
 }
