@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import DashboardAppBar from '../components/DashboardAppBar'
+import SideDrawer from '../components/SideDrawer'
 import './App.css'
 
 const App = () => {
-  const [sideDrawer, setSideDrawer] = useState(false)
+  const [sideDrawerState, setSideDrawerState] = useState(false)
 
   return (
     <div>
-      <DashboardAppBar />
+      <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} />
+      <SideDrawer />
     </div>
   )
 }
