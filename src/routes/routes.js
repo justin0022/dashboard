@@ -1,19 +1,20 @@
-import { Home, AccountCircle } from '@material-ui/icons'
-import Grades from '../containers/Grades'
-import Assignments from '../containers/Assignments'
+import { Home, Assessment, Grade } from '@material-ui/icons'
 
 const Routes = [
   {
+    path: '/',
+    sidebarName: 'Home',
+    icon: Home
+  },
+  {
     path: '/Grades',
     sidebarName: 'Grades',
-    icon: Home,
-    component: Grades
+    icon: Grade
   },
   {
     path: '/Assignments',
     sidebarName: 'Assignments',
-    icon: AccountCircle,
-    component: Assignments
+    icon: Assessment
   }
 ]
 
