@@ -1,14 +1,12 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
-import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
-import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+import { Link, withRouter } from 'react-router-dom'
+import routes from '../routes/routes'
 
 const styles = {
   list: {
@@ -25,20 +23,13 @@ const sideDrawer = props => {
   const sideList = (
     <div className={classes.list}>
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {routes.map((props, key) => (
+          <Link to={props.path} style={{ textDecoration: 'none' }} key={key}>
+            <ListItem button key={props.sidebarName}>
+              <ListItemIcon><props.icon /></ListItemIcon>
+              <ListItemText primary={props.sidebarName} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -60,4 +51,4 @@ const sideDrawer = props => {
   )
 }
 
-export default withStyles(styles)(sideDrawer)
+export default withRouter(withStyles(styles)(sideDrawer))
