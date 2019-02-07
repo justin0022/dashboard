@@ -44,12 +44,12 @@ const createBarChart = ({ data, width, height, id, tip }) => {
   }
 }
 
-const BarChart = props => {
+const BarChart = React.memo(props => {
   useEffect(() => createBarChart(props))
 
   return (
     <div id={props.id} />
   )
-}
+})
 
 export default BarChart
