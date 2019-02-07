@@ -48,6 +48,13 @@ const Grades = props => {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
+            <Typography>Sankey Diagram</Typography>
+            <Sankey id='bar4' data={sankeyData} width={700} height={500} />
+            <EmojiFeedback id='sankeyFeedback' endpoints={endpoints} />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
             <BarChart id='bar2' data={barChartData} width={700} height={500} />
             <EmojiFeedback id='barChartFeedback' endpoints={endpoints} />
@@ -58,13 +65,6 @@ const Grades = props => {
             <Typography>Histogram</Typography>
             <Histogram id='bar3' data={histogramData} width={700} height={500} />
             <EmojiFeedback id='histogramFeedback' endpoints={endpoints} />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <Typography>Sankey Diagram</Typography>
-            <Sankey id='bar4' data={sankeyData} width={700} height={500} />
-            <EmojiFeedback id='sankeyFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
