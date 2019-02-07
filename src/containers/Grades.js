@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -13,6 +13,7 @@ import histogramData from '../data/histogramData'
 import lineChartData from '../data/lineChartData'
 import sankeyData from '../data/sankeyData'
 import createToolTip from '../util/createToolTip'
+import emojiFeedback from '@justin0022/emoji-feedback'
 
 const styles = theme => ({
   root: {
@@ -27,6 +28,15 @@ const styles = theme => ({
 
 const Grades = props => {
   const { classes } = props
+
+  const app = emojiFeedback()
+  const endpoints = {
+    emoji: 'http://127.0.0.1:5000/emoji',
+    feedback: 'http://127.0.0.1:5000/feedback',
+    votes: 'http://127.0.0.1:5000/votes'
+  }
+
+  useEffect(() => app.init('feedback', endpoints))
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -34,6 +44,7 @@ const Grades = props => {
           <Paper className={classes.paper}>
             Grouped Bar Chart
             <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} tip={createToolTip(d => `<p>${d.data}</p>`)} />
+            <div id='feedback' />
           </Paper>
         </Grid>
         <Grid item xs={6}>
