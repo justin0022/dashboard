@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import { Link, withRouter } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
@@ -17,6 +18,10 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  homeButton: {
+    textDecoration: 'none',
+    color: 'white'
   }
 }
 
@@ -35,7 +40,7 @@ const DashboardAppBar = props => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' color='inherit' className={classes.grow}>
-            UBC Learning Analytics
+            <Link to='/' className={classes.homeButton}>UBC Learning Analytics</Link>
           </Typography>
           <Button color='inherit'>Login</Button>
         </Toolbar>
@@ -44,4 +49,4 @@ const DashboardAppBar = props => {
   )
 }
 
-export default withStyles(styles)(DashboardAppBar)
+export default withRouter(withStyles(styles)(DashboardAppBar))
