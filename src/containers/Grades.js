@@ -32,6 +32,14 @@ const endpoints = {
   votes: 'http://127.0.0.1:5000/votes'
 }
 
+const specialEmojis = [
+  { emojicon: '💀', emotion: 'skull' },
+  { emojicon: '👻', emotion: 'boo' },
+  { emojicon: '👽', emotion: 'alien' },
+  { emojicon: '🤖', emotion: 'robot' },
+  { emojicon: '💩', emotion: 'poop' }
+]
+
 const Grades = ({ classes }) => {
   return (
     <div className={classes.root}>
@@ -40,8 +48,7 @@ const Grades = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} />
-            <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} />
-            {/* <div id='groupedBarChartFeedback' className={classes.feedback} /> */}
+            <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
@@ -55,7 +62,7 @@ const Grades = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
             <BarChart id='bar2' data={barChartData} width={700} height={500} />
-            <EmojiFeedback id='barChartFeedback' endpoints={endpoints} />
+            <EmojiFeedback id='barChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
