@@ -35,7 +35,7 @@ const DashboardAppBar = props => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' color='inherit' className={classes.grow}>
-            Learning Analytics
+            UBC Learning Analytics
           </Typography>
           <Button color='inherit'>Login</Button>
         </Toolbar>
