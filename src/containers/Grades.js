@@ -2,8 +2,10 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import BarChart from '../components/visualizations/BarChart'
+import BarChart from '../components/BarChart'
+import GroupedBarChart from '../components/GroupedBarChart'
 import barChartData from '../data/barChartData'
+import groupedBarChartData from '../data/groupedBarChartData'
 import createToolTip from '../util/createToolTip'
 
 const styles = theme => ({
@@ -24,7 +26,7 @@ const Grades = props => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <BarChart id='bar1' data={barChartData} width={1000} height={600} tip={createToolTip(d => `<p>${d.data}</p>`)} />
+            <GroupedBarChart id='bar1' data={groupedBarChartData} width={1000} height={600} tip={createToolTip(d => `<p>${d.data}</p>`)} />
           </Paper>
         </Grid>
         <Grid item xs={6}>

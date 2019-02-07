@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Grades from './Grades'
 import Assignments from './Assignments'
 import Home from './Home'
-import './App.css'
 
 const App = () => {
   const [sideDrawerState, setSideDrawerState] = useState(false)

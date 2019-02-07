@@ -1,7 +1,6 @@
-import React, { useEffect, memo } from 'react'
+import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
-import * as d3 from 'd3'
 
 const createBarChart = ({ data, width, height, id, tip }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
@@ -44,11 +43,4 @@ const createBarChart = ({ data, width, height, id, tip }) => {
   }
 }
 
-const BarChart = memo(props => {
-  useEffect(() => createBarChart(props))
-  return (
-    <div id={props.id} />
-  )
-})
-
-export default BarChart
+export default createBarChart
