@@ -6,7 +6,7 @@ const EmojiFeedback = memo(props => {
   useEffect(() => {
     const feedback = emojiFeedback()
     feedback.init(id, endpoints, options)
-    return () => feedback.destroy()
+    return () => feedback.destroy(id)
   })
   return (
     <div id={id} />
