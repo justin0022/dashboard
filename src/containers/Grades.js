@@ -23,26 +23,38 @@ const Grades = props => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <BarChart id='bar' data={barChartData} width={1000} height={600} />
+            <BarChart id='bar1' data={barChartData} width={1000} height={600} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>xs-6</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar2' data={barChartData} width={500} height={300} />
+          </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar3' data={barChartData} width={500} height={300} />
+          </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar4' data={barChartData} width={300} height={200} />
+          </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar5' data={barChartData} width={300} height={200} />
+          </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar6' data={barChartData} width={300} height={200} />
+          </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
+          <Paper className={classes.paper}>
+            <BarChart id='bar7' data={barChartData} width={300} height={200} />
+          </Paper>
         </Grid>
       </Grid>
     </div>
