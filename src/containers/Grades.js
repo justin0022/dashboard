@@ -32,9 +32,7 @@ const endpoints = {
   votes: 'http://127.0.0.1:5000/votes'
 }
 
-const Grades = props => {
-  const { classes } = props
-
+const Grades = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>

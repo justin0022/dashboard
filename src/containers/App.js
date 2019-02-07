@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import DashboardAppBar from '../components/DashboardAppBar'
 import SideDrawer from '../components/SideDrawer'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Grades from './Grades'
 import Assignments from './Assignments'
 import Home from './Home'

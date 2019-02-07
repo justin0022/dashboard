@@ -32,9 +32,7 @@ const endpoints = {
   votes: 'http://127.0.0.1:5000/votes'
 }
 
-const Assignments = props => {
-  const { classes } = props
-
+const Assignments = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -50,7 +48,6 @@ const Assignments = props => {
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart id='bar1' data={groupedBarChartData} width={700} height={500} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} />
-            {/* <div id='groupedBarChartFeedback' className={classes.feedback} /> */}
           </Paper>
         </Grid>
         <Grid item xs={6}>

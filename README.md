@@ -1,5 +1,5 @@
 # Dashboard
-A React single page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app), uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), and [React Router](https://github.com/ReactTraining/react-router).
+A React single page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), and [React Router](https://github.com/ReactTraining/react-router).
 
 ## Available Scripts
 
