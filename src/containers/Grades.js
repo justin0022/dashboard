@@ -6,10 +6,12 @@ import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Histogram from '../components/Histogram'
 import LineChart from '../components/LineChart'
+import Sankey from '../components/Sankey'
 import barChartData from '../data/barChartData'
 import groupedBarChartData from '../data/groupedBarChartData'
 import histogramData from '../data/histogramData'
 import lineChartData from '../data/lineChartData'
+import sankeyData from '../data/sankeyData'
 import createToolTip from '../util/createToolTip'
 
 const styles = theme => ({
@@ -48,23 +50,14 @@ const Grades = props => {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
+            Sankey Diagram
+            <Sankey id='bar4' data={sankeyData} width={700} height={500} />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
             Line Chart
-            <LineChart id='bar4' data={lineChartData} width={700} height={500} />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <BarChart id='bar5' data={barChartData} width={700} height={500} />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <BarChart id='bar6' data={barChartData} width={700} height={500} />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <BarChart id='bar7' data={barChartData} width={700} height={500} />
+            <LineChart id='bar5' data={lineChartData} width={700} height={500} />
           </Paper>
         </Grid>
       </Grid>
