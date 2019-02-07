@@ -1,4 +1,4 @@
-const barChartData = [
+export default [
   { label: 'Bob', data: 12 },
   { label: 'Robin', data: 34 },
   { label: 'Anne', data: 78 },
@@ -7,5 +7,3 @@ const barChartData = [
   { label: 'Eve', data: 44 },
   { label: 'Karen', data: 4 }
 ]
-
-export default barChartData

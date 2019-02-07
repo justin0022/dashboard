@@ -1,4 +1,4 @@
-const groupedBarChartData = [
+export default [
   {
     label: 'CA',
     data: {
@@ -60,5 +60,3 @@ const groupedBarChartData = [
     }
   }
 ]
-
-export default groupedBarChartData

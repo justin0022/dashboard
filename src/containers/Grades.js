@@ -4,8 +4,12 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
+import Histogram from '../components/Histogram'
+import LineChart from '../components/LineChart'
 import barChartData from '../data/barChartData'
 import groupedBarChartData from '../data/groupedBarChartData'
+import histogramData from '../data/histogramData'
+import lineChartData from '../data/lineChartData'
 import createToolTip from '../util/createToolTip'
 
 const styles = theme => ({
@@ -26,37 +30,41 @@ const Grades = props => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <GroupedBarChart id='bar1' data={groupedBarChartData} width={1000} height={600} tip={createToolTip(d => `<p>${d.data}</p>`)} />
+            Grouped Bar Chart
+            <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} tip={createToolTip(d => `<p>${d.data}</p>`)} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar2' data={barChartData} width={500} height={300} />
+            Bar Chart
+            <BarChart id='bar2' data={barChartData} width={700} height={500} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar3' data={barChartData} width={500} height={300} />
+            Histogram
+            <Histogram id='bar3' data={histogramData} width={700} height={500} />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar4' data={barChartData} width={300} height={200} />
+            Line Chart
+            <LineChart id='bar4' data={lineChartData} width={700} height={500} />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar5' data={barChartData} width={300} height={200} />
+            <BarChart id='bar5' data={barChartData} width={700} height={500} />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar6' data={barChartData} width={300} height={200} />
+            <BarChart id='bar6' data={barChartData} width={700} height={500} />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <BarChart id='bar7' data={barChartData} width={300} height={200} />
+            <BarChart id='bar7' data={barChartData} width={700} height={500} />
           </Paper>
         </Grid>
       </Grid>
