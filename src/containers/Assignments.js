@@ -24,7 +24,7 @@ const Assignments = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart id='bar100' data={groupedBarChartData} />
+            <GroupedBarChart data={groupedBarChartData} />
           </Paper>
         </Grid>
       </Grid>
