@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { optimizedResize } from '../util/chartUtil'
+import { createResize } from '../util/chartUtil'
 
 const withResponsiveness = ChartComponent => props => {
   const [el, setEl] = useState(null)
@@ -13,8 +13,9 @@ const withResponsiveness = ChartComponent => props => {
   }
 
   useEffect(() => {
+    const optimizedResize = createResize()
     optimizedResize.add(() => setContainer(el))
-    return window.removeEventListener('resize', () => setContainer(el))
+    return optimizedResize.remove
   })
 
   const notNull = (width !== null)

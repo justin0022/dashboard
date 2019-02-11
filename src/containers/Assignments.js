@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import groupedBarChartData from '../data/groupedBarChartData'
 import GroupedBarChart from '../components/GroupedBarChart'
-import withResponsiveness from '../higherOrderComponents/withResponsiveness'
 
 const styles = theme => ({
   root: {
@@ -19,14 +18,13 @@ const styles = theme => ({
 })
 
 const Assignments = ({ classes }) => {
-  const WrappedGroupedBarChart = withResponsiveness(GroupedBarChart)
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <WrappedGroupedBarChart id='bar1' data={groupedBarChartData} />
+            <GroupedBarChart id='bar100' data={groupedBarChartData} />
           </Paper>
         </Grid>
       </Grid>

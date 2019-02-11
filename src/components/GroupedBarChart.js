@@ -1,6 +1,7 @@
 import React, { useEffect, memo } from 'react'
-import { destroyChart } from '../util/chartUtil'
 import createGroupedBarChart from './viz/createGroupedBarChart'
+import withResponsiveness from '../higherOrderComponents/withResponsiveness'
+import { destroyChart } from '../util/chartUtil'
 
 const GroupedBarChart = memo(props => {
   useEffect(() => {
@@ -12,4 +13,4 @@ const GroupedBarChart = memo(props => {
   )
 })
 
-export default GroupedBarChart
+export default withResponsiveness(GroupedBarChart)

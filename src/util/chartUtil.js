@@ -24,7 +24,7 @@ function destroyChart (id) {
 }
 
 // Courtesy of Mozilla: https://developer.mozilla.org/en-US/docs/Web/Events/resize
-const optimizedResize = (function () {
+const createResize = function () {
   const callbacks = []
   let running = false
 
@@ -64,12 +64,13 @@ const optimizedResize = (function () {
         window.addEventListener('resize', resize)
       }
       addCallback(callback)
-    }
+    },
+    remove: () => window.removeEventListener('resize', resize)
   }
-}())
+}
 
 export {
-  optimizedResize,
+  createResize,
   setWidth,
   setHeight,
   setData,
