@@ -17,3 +17,8 @@ export function adjustViewport (width, height, margin) {
   const aHeight = height - margin.top - margin.bottom
   return [aWidth, aHeight]
 }
+
+export function destroyChart (id) {
+  const element = document.getElementById(id)
+  element.removeChild(element.childNodes[0])
+}

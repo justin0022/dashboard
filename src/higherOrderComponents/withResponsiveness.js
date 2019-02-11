@@ -12,8 +12,8 @@ const withResponsiveness = ChartComponent => props => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', setContainer(el))
-    return window.removeEventListener('resize', setContainer(el))
+    window.addEventListener('resize', () => setContainer(el))
+    return window.removeEventListener('resize', () => setContainer(el))
   })
 
   const notNull = (width !== null)
