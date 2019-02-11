@@ -14,6 +14,7 @@ import groupedBarChartData from '../data/groupedBarChartData'
 import histogramData from '../data/histogramData'
 import lineChartData from '../data/lineChartData'
 import sankeyData from '../data/sankeyData'
+import withResponsiveness from '../higherOrderComponents/withResponsiveness'
 
 const styles = theme => ({
   root: {
@@ -41,13 +42,15 @@ const specialEmojis = [
 ]
 
 const Grades = ({ classes }) => {
+  const WrappedGroupedBarChart = withResponsiveness(GroupedBarChart)
+  // <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} />
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} />
+            <WrappedGroupedBarChart id='bar1' data={groupedBarChartData} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
