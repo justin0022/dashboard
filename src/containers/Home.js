@@ -3,8 +3,13 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
 import LineChart from '../components/LineChart'
+import BarChart from '../components/BarChart'
+import GroupedBarChart from '../components/GroupedBarChart'
 import lineChartData from '../data/lineChartData'
+import barChartData from '../data/barChartData'
+import groupedBarChartData from '../data/groupedBarChartData'
 
 const styles = theme => ({
   root: {
@@ -19,8 +24,11 @@ const styles = theme => ({
 const Home = ({ classes }) => {
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={4}>
+      <Grid container spacing={16}>
+        <Grid item xs={12}>
+          <Typography variant='h2'>Overview Dashboard</Typography>
+        </Grid>
+        <Grid item xs={6} sm={4}>
           <Paper className={classes.paper}>
             <Grid item container>
               <Grid item xs={12} sm={6} container direction='column' spacing={8}>
@@ -33,7 +41,9 @@ const Home = ({ classes }) => {
               </Grid>
               <Grid item xs={12} sm={6} container direction='column' spacing={8}>
                 <Grid item>
-                  <Typography gutterBottom variant='subtitle2' align='right'>View Report</Typography>
+                  <Typography gutterBottom variant='subtitle2' align='right'>
+                    <Link>View Report</Link>
+                  </Typography>
                 </Grid>
                 <Grid item>
                   <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
@@ -41,7 +51,61 @@ const Home = ({ classes }) => {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <LineChart id='bar50' data={lineChartData} />
+              <LineChart data={lineChartData} />
+            </Grid>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <Paper className={classes.paper}>
+            <Grid item container>
+              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+                <Grid item>
+                  <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
+                </Grid>
+                <Grid item>
+                  <Typography gutterBottom variant='h6'>423</Typography>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+                <Grid item>
+                  <Typography gutterBottom variant='subtitle2' align='right'>
+                    <Link>View Report</Link>
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <BarChart data={barChartData} />
+            </Grid>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <Paper className={classes.paper}>
+            <Grid item container>
+              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+                <Grid item>
+                  <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
+                </Grid>
+                <Grid item>
+                  <Typography gutterBottom variant='h6'>423</Typography>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+                <Grid item>
+                  <Typography gutterBottom variant='subtitle2' align='right'>
+                    <Link>View Report</Link>
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <GroupedBarChart data={groupedBarChartData} />
             </Grid>
           </Paper>
         </Grid>
