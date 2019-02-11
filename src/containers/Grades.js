@@ -42,15 +42,13 @@ const specialEmojis = [
 ]
 
 const Grades = ({ classes }) => {
-  const WrappedGroupedBarChart = withResponsiveness(GroupedBarChart)
-  // <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} />
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <WrappedGroupedBarChart id='bar1' data={groupedBarChartData} />
+            <GroupedBarChart id='bar1' data={groupedBarChartData} width={1200} height={600} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
