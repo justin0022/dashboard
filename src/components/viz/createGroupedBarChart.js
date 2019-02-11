@@ -3,7 +3,7 @@ import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
 import { getValues, flatten } from '../../util/arrayUtil'
 
-const createGroupedBarChart = ({ data, width, height, id, tip }) => {
+const createGroupedBarChart = ({ data, width, height, tip, el }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x0 = d3.scaleBand()
@@ -25,7 +25,7 @@ const createGroupedBarChart = ({ data, width, height, id, tip }) => {
   const colours = d3.scaleOrdinal()
     .range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00'])
 
-  const svg = d3.select(`#${id}`).append('svg')
+  const svg = d3.select(el).append('svg')
     .attr('width', aWidth)
     .attr('height', aHeight)
 

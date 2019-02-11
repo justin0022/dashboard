@@ -40,8 +40,8 @@ const Home = ({ classes }) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12} container>
-              <LineChart id='lineChart1' data={lineChartData} width={300} height={200} />
+            <Grid item xs={12}>
+              <LineChart id='bar50' data={lineChartData} />
             </Grid>
           </Paper>
         </Grid>

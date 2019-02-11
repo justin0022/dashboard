@@ -18,9 +18,8 @@ function adjustViewport (width, height, margin) {
   return [aWidth, aHeight]
 }
 
-function destroyChart (id) {
-  const element = document.getElementById(id)
-  element.removeChild(element.childNodes[0])
+function destroyChart (el) {
+  el.removeChild(el.childNodes[0])
 }
 
 // Courtesy of Mozilla: https://developer.mozilla.org/en-US/docs/Web/Events/resize
