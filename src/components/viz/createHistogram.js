@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
 
-const createHistogram = ({ data, width, height, id, tip }) => {
+const createHistogram = ({ data, width, height, el, tip }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()
@@ -17,7 +17,7 @@ const createHistogram = ({ data, width, height, id, tip }) => {
     .domain([0, d3.max(bins, d => d.length)]).nice()
     .range([aHeight - margin.bottom, margin.top])
 
-  const svg = d3.select(`#${id}`).append('svg')
+  const svg = d3.select(el).append('svg')
     .attr('width', aWidth)
     .attr('height', aHeight)
 

@@ -1,15 +1,19 @@
-import React, { useEffect, memo } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import createSankeyDiagram from './viz/createSankeyDiagram'
 import withResponsiveness from '../higherOrderComponents/withResponsiveness'
 import { destroyChart } from '../util/chartUtil'
 
 const Sankey = memo(props => {
+  const [el, setEl] = useState(null)
+
   useEffect(() => {
-    createSankeyDiagram(props)
-    return () => destroyChart(props.id)
+    if (el) {
+      createSankeyDiagram({ ...props, el })
+      return () => destroyChart(el)
+    }
   })
   return (
-    <div id={props.id} />
+    <div ref={el => setEl(el)} />
   )
 })
 
