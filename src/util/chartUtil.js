@@ -1,24 +1,78 @@
 const set = (chartConfig, propertyName, value) => ({ ...chartConfig, [propertyName]: value })
 
-export function setWidth (chartConfig, width) {
+function setWidth (chartConfig, width) {
   return set(chartConfig, 'width', width)
 }
 
-export function setHeight (chartConfig, height) {
+function setHeight (chartConfig, height) {
   return set(chartConfig, 'height', height)
 }
 
-export function setData (chartConfig, data) {
+function setData (chartConfig, data) {
   return set(chartConfig, 'data', data)
 }
 
-export function adjustViewport (width, height, margin) {
+function adjustViewport (width, height, margin) {
   const aWidth = width - margin.left - margin.right
   const aHeight = height - margin.top - margin.bottom
   return [aWidth, aHeight]
 }
 
-export function destroyChart (id) {
+function destroyChart (id) {
   const element = document.getElementById(id)
   element.removeChild(element.childNodes[0])
+}
+
+// Courtesy of Mozilla: https://developer.mozilla.org/en-US/docs/Web/Events/resize
+const optimizedResize = (function () {
+  const callbacks = []
+  let running = false
+
+  // fired on resize event
+  function resize () {
+    if (!running) {
+      running = true
+
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(runCallbacks)
+      } else {
+        setTimeout(runCallbacks, 66)
+      }
+    }
+  }
+
+  // run the actual callbacks
+  function runCallbacks () {
+    callbacks.forEach(function (callback) {
+      callback()
+    })
+
+    running = false
+  }
+
+  // adds callback to loop
+  function addCallback (callback) {
+    if (callback) {
+      callbacks.push(callback)
+    }
+  }
+
+  return {
+    // public method to add additional callback
+    add: function (callback) {
+      if (!callbacks.length) {
+        window.addEventListener('resize', resize)
+      }
+      addCallback(callback)
+    }
+  }
+}())
+
+export {
+  optimizedResize,
+  setWidth,
+  setHeight,
+  setData,
+  adjustViewport,
+  destroyChart
 }
