@@ -1,7 +1,7 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # Dashboard
-A React single page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), [React Router](https://github.com/ReactTraining/react-router), and [Emoji Feedback](https://github.com/ubc/emoji-feedback).
+A React single page data visualiation app. It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), [React Router](https://github.com/ReactTraining/react-router), and [Emoji Feedback](https://github.com/ubc/emoji-feedback).
 
 ## Getting Started
 
