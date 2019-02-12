@@ -1,3 +1,5 @@
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 # Dashboard
 A React single page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), and [React Router](https://github.com/ReactTraining/react-router).
 
