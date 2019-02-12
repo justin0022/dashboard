@@ -14,6 +14,7 @@ import groupedBarChartData from '../data/groupedBarChartData'
 import histogramData from '../data/histogramData'
 import lineChartData from '../data/lineChartData'
 import sankeyData from '../data/sankeyData'
+import createToolTip from '../util/createToolTip'
 
 const styles = theme => ({
   root: {
@@ -41,13 +42,14 @@ const specialEmojis = [
 ]
 
 const Grades = ({ classes }) => {
+  const tip = createToolTip(d => `<p>${d.data}</p>`)
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart data={groupedBarChartData} />
+            <GroupedBarChart data={groupedBarChartData} tip={tip} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
@@ -61,14 +63,14 @@ const Grades = ({ classes }) => {
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
-            <BarChart data={barChartData} />
+            <BarChart data={barChartData} tip={tip} />
             <EmojiFeedback id='barChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <Typography>Histogram</Typography>
-            <Histogram data={histogramData} />
+            <Typography>Histogram</Typography >
+            <Histogram data={histogramData} tip={createToolTip(d => `<p>${d.length}</p>`)} />
             <EmojiFeedback id='histogramFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>

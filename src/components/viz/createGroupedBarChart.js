@@ -36,12 +36,12 @@ const createGroupedBarChart = ({ data, width, height, tip, el }) => {
     .attr('transform', d => `translate(${x0(d.label)}, 0)`)
 
   const bar = g.selectAll('rect')
-    .data(d => keys.map(key => ({ key, value: d.data[key] })))
+    .data(d => keys.map(key => ({ key, data: d.data[key] })))
     .enter().append('rect')
     .attr('x', d => x1(d.key))
-    .attr('y', d => y(d.value))
+    .attr('y', d => y(d.data))
     .attr('width', x1.bandwidth())
-    .attr('height', d => aHeight - margin.bottom - y(d.value))
+    .attr('height', d => aHeight - margin.bottom - y(d.data))
     .attr('fill', d => colours(d.key))
 
   svg.append('g')
