@@ -8,9 +8,11 @@ import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
+import EmojiFeedback from '../components/EmojiFeedback'
 import lineChartData from '../data/lineChartData'
 import barChartData from '../data/barChartData'
 import groupedBarChartData from '../data/groupedBarChartData'
+import emojiEndpoints from '../constants/emojiEndpoints'
 
 const styles = theme => ({
   root: {
@@ -81,6 +83,7 @@ const Home = ({ classes }) => {
             <Grid item xs={12}>
               <BarChart data={barChartData} />
             </Grid>
+            <EmojiFeedback id='barChart' endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6} sm={4}>

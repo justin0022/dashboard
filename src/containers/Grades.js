@@ -15,6 +15,7 @@ import histogramData from '../data/histogramData'
 import lineChartData from '../data/lineChartData'
 import sankeyData from '../data/sankeyData'
 import createToolTip from '../util/createToolTip'
+import emojiEndpoints from '../constants/emojiEndpoints'
 
 const styles = theme => ({
   root: {
@@ -26,12 +27,6 @@ const styles = theme => ({
     color: theme.palette.text.secondary
   }
 })
-
-const endpoints = {
-  emoji: 'http://127.0.0.1:5000/emoji',
-  feedback: 'http://127.0.0.1:5000/feedback',
-  votes: 'http://127.0.0.1:5000/votes'
-}
 
 const specialEmojis = [
   { emojicon: '💀', emotion: 'skull' },
@@ -50,35 +45,32 @@ const Grades = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart data={groupedBarChartData} tip={tip} aspectRatio={0.25} />
-            <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
+            <EmojiFeedback id='groupedBarChartFeedback' endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Sankey Diagram</Typography>
             <Sankey data={sankeyData} />
-            <EmojiFeedback id='sankeyFeedback' endpoints={endpoints} />
+            <EmojiFeedback id='sankeyFeedback' endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
             <BarChart data={barChartData} tip={tip} />
-            <EmojiFeedback id='barChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Histogram</Typography >
             <Histogram data={histogramData} tip={createToolTip(d => `<p>${d.length}</p>`)} />
-            <EmojiFeedback id='histogramFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Line Chart</Typography>
             <LineChart data={lineChartData} />
-            <EmojiFeedback id='lineChartFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
       </Grid>
