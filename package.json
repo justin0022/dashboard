@@ -2,6 +2,7 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://justin0022.github.io/dashboard",
   "dependencies": {
     "@babel/core": "7.1.6",
     "@justin0022/emoji-feedback": "^1.0.5",
@@ -17,7 +18,7 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
-    "css-loader": "1.0.0",
+    "css-loader": "1.0.0",  
     "d3": "^5.9.0",
     "d3-sankey": "^0.7.1",
     "d3-tip": "^0.9.1",
@@ -65,7 +66,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "standard && node scripts/build.js",
-    "test": "standard && node scripts/test.js"
+    "test": "standard && node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -121,5 +124,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

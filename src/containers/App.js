@@ -10,7 +10,7 @@ const App = () => {
   const [sideDrawerState, setSideDrawerState] = useState(false)
 
   return (
-    <Router>
+    <Router basename='/dashboard/'>
       <div>
         <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} />
         <SideDrawer toggleDrawer={setSideDrawerState} sideDrawerState={sideDrawerState} />
