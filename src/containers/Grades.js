@@ -49,7 +49,7 @@ const Grades = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart data={groupedBarChartData} tip={tip} />
+            <GroupedBarChart data={groupedBarChartData} tip={tip} aspectRatio={0.25} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>

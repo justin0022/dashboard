@@ -3,29 +3,19 @@
 # Dashboard
 A React single page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), and [React Router](https://github.com/ReactTraining/react-router).
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+These instructions will get you a copy of the project up and running on your local machine.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Install [Node 8.0.0 or greater](https://nodejs.org)**.
+2. **Install [Git](https://git-scm.com/downloads)**.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Installing and Setup
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. First, clone this repo. `git clone https://github.com/justin0022/dashboard.git`
+1. Then cd into the repo. `cd dashboard`
+1. Run the installation script. `npm install` (If you see `babel-node: command not found`, you've missed this step.)
+1. Run using `npm start`. Webpack Dev Server will host a hot-loading webpage.
+1. To build for production, `npm run build` will output the production-ready, minified, tree-shaken bundle in `/dist`.
