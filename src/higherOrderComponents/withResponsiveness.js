@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { createResize } from '../util/chartUtil'
 
 const withResponsiveness = ChartComponent => props => {
+  const { aspectRatio = 0.75 } = props
+
   const [el, setEl] = useState(null)
   const [width, setWidth] = useState(null)
 
@@ -22,7 +24,7 @@ const withResponsiveness = ChartComponent => props => {
 
   return (
     <div ref={el => setContainer(el)}>
-      {notNull && <ChartComponent width={width} height={width * 0.75} {...props} /> }
+      {notNull && <ChartComponent width={width} height={width * aspectRatio} {...props} /> }
     </div>
   )
 }
