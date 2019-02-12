@@ -47,35 +47,35 @@ const Grades = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart id='bar1' data={groupedBarChartData} />
+            <GroupedBarChart data={groupedBarChartData} />
             <EmojiFeedback id='groupedBarChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Sankey Diagram</Typography>
-            <Sankey id='bar4' data={sankeyData} />
+            <Sankey data={sankeyData} />
             <EmojiFeedback id='sankeyFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
-            <BarChart id='bar2' data={barChartData} />
+            <BarChart data={barChartData} />
             <EmojiFeedback id='barChartFeedback' endpoints={endpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Histogram</Typography>
-            <Histogram id='bar3' data={histogramData} />
+            <Histogram data={histogramData} />
             <EmojiFeedback id='histogramFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Line Chart</Typography>
-            <LineChart id='bar5' data={lineChartData} />
+            <LineChart data={lineChartData} />
             <EmojiFeedback id='lineChartFeedback' endpoints={endpoints} />
           </Paper>
         </Grid>
