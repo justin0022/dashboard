@@ -21,6 +21,11 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     color: theme.palette.text.secondary
+  },
+  feedback: {
+    width: '310px',
+    height: '350px',
+    padding: '12px'
   }
 })
 
@@ -56,6 +61,7 @@ const Home = ({ classes }) => {
             <Grid item xs={12}>
               <LineChart data={lineChartData} />
             </Grid>
+            <EmojiFeedback id='lineChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -83,7 +89,7 @@ const Home = ({ classes }) => {
             <Grid item xs={12}>
               <BarChart data={barChartData} />
             </Grid>
-            <EmojiFeedback id='barChart' endpoints={emojiEndpoints} />
+            <EmojiFeedback id='barChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -111,6 +117,7 @@ const Home = ({ classes }) => {
             <Grid item xs={12}>
               <GroupedBarChart data={groupedBarChartData} />
             </Grid>
+            <EmojiFeedback id='groupedBarChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -144,6 +151,7 @@ const Home = ({ classes }) => {
                   ['4', 'Philip Chaney', '$38,735', 'Korea, South']
                 ]} />
             </Grid>
+            <EmojiFeedback id='table' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
       </Grid>

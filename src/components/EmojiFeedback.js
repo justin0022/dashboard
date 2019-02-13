@@ -1,16 +1,21 @@
 import emojiFeedback from '@justin0022/emoji-feedback'
+import withPopover from '../higherOrderComponents/withPopover'
 import React, { useEffect, memo } from 'react'
 
 const EmojiFeedback = memo(props => {
-  const { endpoints, id, options } = props
+  const {
+    endpoints,
+    id,
+    options,
+    style
+  } = props
   useEffect(() => {
     const feedback = emojiFeedback()
     feedback.init(id, endpoints, options)
-    return () => feedback.destroy(id)
   })
   return (
-    <div id={id} />
+    <div id={id} className={style} />
   )
 })
 
-export default EmojiFeedback
+export default withPopover(EmojiFeedback)
