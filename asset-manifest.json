@@ -1,16 +1,16 @@
 {
   "main.css": "/dashboard/static/css/main.87371534.chunk.css",
-  "main.js": "/dashboard/static/js/main.a4c0b439.chunk.js",
-  "main.js.map": "/dashboard/static/js/main.a4c0b439.chunk.js.map",
+  "main.js": "/dashboard/static/js/main.b88aa09d.chunk.js",
+  "main.js.map": "/dashboard/static/js/main.b88aa09d.chunk.js.map",
   "static/css/1.9305d7b2.chunk.css": "/dashboard/static/css/1.9305d7b2.chunk.css",
   "static/js/1.c9f01cbc.chunk.js": "/dashboard/static/js/1.c9f01cbc.chunk.js",
   "static/js/1.c9f01cbc.chunk.js.map": "/dashboard/static/js/1.c9f01cbc.chunk.js.map",
   "runtime~main.js": "/dashboard/static/js/runtime~main.81312d4a.js",
   "runtime~main.js.map": "/dashboard/static/js/runtime~main.81312d4a.js.map",
   "static/media/index.css": "/dashboard/static/media/roboto-latin-900italic.bc833e72.woff",
-  "static/css/1.9305d7b2.chunk.css.map": "/dashboard/static/css/1.9305d7b2.chunk.css.map",
   "static/css/main.87371534.chunk.css.map": "/dashboard/static/css/main.87371534.chunk.css.map",
+  "static/css/1.9305d7b2.chunk.css.map": "/dashboard/static/css/1.9305d7b2.chunk.css.map",
   "index.html": "/dashboard/index.html",
-  "precache-manifest.76153cf4fb963485c6976d977d1c2bd9.js": "/dashboard/precache-manifest.76153cf4fb963485c6976d977d1c2bd9.js",
+  "precache-manifest.e7e994f3b21bf225e762a555eed72380.js": "/dashboard/precache-manifest.e7e994f3b21bf225e762a555eed72380.js",
   "service-worker.js": "/dashboard/service-worker.js"
 }
