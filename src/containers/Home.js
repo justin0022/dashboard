@@ -9,10 +9,8 @@ import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import lineChartData from '../data/lineChartData'
-import barChartData from '../data/barChartData'
-import groupedBarChartData from '../data/groupedBarChartData'
 import emojiEndpoints from '../constants/emojiEndpoints'
+import { barChartURL, groupedBarChartURL, lineChartURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
@@ -20,6 +18,7 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
+    textAlign: 'center',
     color: theme.palette.text.secondary
   },
   feedback: {
@@ -59,7 +58,7 @@ const Home = ({ classes }) => {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <LineChart data={lineChartData} />
+              <LineChart dataURL={lineChartURL} />
             </Grid>
             <EmojiFeedback id='lineChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
@@ -87,7 +86,7 @@ const Home = ({ classes }) => {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <BarChart data={barChartData} />
+              <BarChart dataURL={barChartURL} />
             </Grid>
             <EmojiFeedback id='barChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
@@ -115,7 +114,7 @@ const Home = ({ classes }) => {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <GroupedBarChart data={groupedBarChartData} />
+              <GroupedBarChart dataURL={groupedBarChartURL} />
             </Grid>
             <EmojiFeedback id='groupedBarChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>

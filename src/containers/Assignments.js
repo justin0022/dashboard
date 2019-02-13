@@ -3,8 +3,8 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import groupedBarChartData from '../data/groupedBarChartData'
 import GroupedBarChart from '../components/GroupedBarChart'
+import { groupedBarChartURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
@@ -24,7 +24,7 @@ const Assignments = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart data={groupedBarChartData} aspectRatio={0.25} />
+            <GroupedBarChart dataURL={groupedBarChartURL} aspectRatio={0.25} />
           </Paper>
         </Grid>
       </Grid>

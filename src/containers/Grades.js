@@ -9,13 +9,9 @@ import GroupedBarChart from '../components/GroupedBarChart'
 import Histogram from '../components/Histogram'
 import LineChart from '../components/LineChart'
 import Sankey from '../components/Sankey'
-import barChartData from '../data/barChartData'
-import groupedBarChartData from '../data/groupedBarChartData'
-import histogramData from '../data/histogramData'
-import lineChartData from '../data/lineChartData'
-import sankeyData from '../data/sankeyData'
 import createToolTip from '../util/createToolTip'
 import emojiEndpoints from '../constants/emojiEndpoints'
+import { barChartURL, groupedBarChartURL, lineChartURL, histogramURL, sankeyURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
@@ -25,6 +21,11 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary
+  },
+  feedback: {
+    width: '310px',
+    height: '350px',
+    padding: '12px'
   }
 })
 
@@ -44,33 +45,33 @@ const Grades = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart data={groupedBarChartData} tip={tip} aspectRatio={0.25} />
-            <EmojiFeedback id='groupedBarChartFeedback' endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
+            <GroupedBarChart dataURL={groupedBarChartURL} tip={tip} aspectRatio={0.25} />
+            <EmojiFeedback id='groupedBarChartFeedback' popoverText={'give feedback'} style={classes.feedback} endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Sankey Diagram</Typography>
-            <Sankey data={sankeyData} />
-            <EmojiFeedback id='sankeyFeedback' endpoints={emojiEndpoints} />
+            <Sankey dataURL={sankeyURL} />
+            <EmojiFeedback id='sankeyFeedback' popoverText={'give feedback'} style={classes.feedback} endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
-            <BarChart data={barChartData} tip={tip} />
+            <BarChart dataURL={barChartURL} tip={tip} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Histogram</Typography >
-            <Histogram data={histogramData} tip={createToolTip(d => `<p>${d.length}</p>`)} />
+            <Histogram dataURL={histogramURL} tip={createToolTip(d => `<p>${d.length}</p>`)} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <Typography>Line Chart</Typography>
-            <LineChart data={lineChartData} />
+            <LineChart dataURL={lineChartURL} />
           </Paper>
         </Grid>
       </Grid>

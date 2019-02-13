@@ -9,10 +9,12 @@ const EmojiFeedback = memo(props => {
     options,
     style
   } = props
+
   useEffect(() => {
     const feedback = emojiFeedback()
     feedback.init(id, endpoints, options)
   })
+
   return (
     <div id={id} className={style} />
   )
