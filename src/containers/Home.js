@@ -18,7 +18,6 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
     color: theme.palette.text.secondary
   },
   feedback: {
@@ -35,10 +34,10 @@ const Home = ({ classes }) => {
         <Grid item xs={12}>
           <Typography variant='h2'>Overview Dashboard</Typography>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
                 </Grid>
@@ -46,7 +45,7 @@ const Home = ({ classes }) => {
                   <Typography gutterBottom variant='h6'>423</Typography>
                 </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2' align='right'>
                     <Link>View Report</Link>
@@ -63,10 +62,10 @@ const Home = ({ classes }) => {
             <EmojiFeedback id='lineChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
                 </Grid>
@@ -74,7 +73,7 @@ const Home = ({ classes }) => {
                   <Typography gutterBottom variant='h6'>423</Typography>
                 </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2' align='right'>
                     <Link>View Report</Link>
@@ -91,10 +90,10 @@ const Home = ({ classes }) => {
             <EmojiFeedback id='barChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
                 </Grid>
@@ -102,7 +101,7 @@ const Home = ({ classes }) => {
                   <Typography gutterBottom variant='h6'>423</Typography>
                 </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2' align='right'>
                     <Link>View Report</Link>
@@ -119,10 +118,10 @@ const Home = ({ classes }) => {
             <EmojiFeedback id='groupedBarChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
           </Paper>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
                 </Grid>
@@ -130,7 +129,7 @@ const Home = ({ classes }) => {
                   <Typography gutterBottom variant='h6'>423</Typography>
                 </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} container direction='column' spacing={8}>
+              <Grid item xs={6} container direction='column' spacing={8}>
                 <Grid item>
                   <Typography gutterBottom variant='subtitle2' align='right'>
                     <Link>View Report</Link>

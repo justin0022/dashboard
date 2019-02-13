@@ -2,6 +2,7 @@
 
 # Dashboard
 **[Live Demo](https://justin0022.github.io/dashboard/)**
+![Home screenshot](./_assets/dashboard-home.png)
 A React single page data visualiation app. It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), [React Router](https://github.com/ReactTraining/react-router), and [Emoji Feedback](https://github.com/ubc/emoji-feedback).
 
 ## Getting Started
@@ -20,3 +21,6 @@ These instructions will get you a copy of the project up and running on your loc
 1. Run the installation script. `npm install` (If you see `babel-node: command not found`, you've missed this step.)
 1. Run using `npm start`. Webpack Dev Server will host a hot-loading webpage.
 1. To build for production, `npm run build` will output the production-ready, minified, tree-shaken bundle in `/dist`.
+
+## Responsive
+![Responsive gif](./_assets/responsive.gif)
