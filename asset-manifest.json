@@ -1,16 +1,16 @@
 {
   "main.css": "/dashboard/static/css/main.87371534.chunk.css",
-  "main.js": "/dashboard/static/js/main.94dc7506.chunk.js",
-  "main.js.map": "/dashboard/static/js/main.94dc7506.chunk.js.map",
+  "main.js": "/dashboard/static/js/main.aa3915af.chunk.js",
+  "main.js.map": "/dashboard/static/js/main.aa3915af.chunk.js.map",
   "static/css/1.9305d7b2.chunk.css": "/dashboard/static/css/1.9305d7b2.chunk.css",
-  "static/js/1.b4436328.chunk.js": "/dashboard/static/js/1.b4436328.chunk.js",
-  "static/js/1.b4436328.chunk.js.map": "/dashboard/static/js/1.b4436328.chunk.js.map",
+  "static/js/1.c9f01cbc.chunk.js": "/dashboard/static/js/1.c9f01cbc.chunk.js",
+  "static/js/1.c9f01cbc.chunk.js.map": "/dashboard/static/js/1.c9f01cbc.chunk.js.map",
   "runtime~main.js": "/dashboard/static/js/runtime~main.81312d4a.js",
   "runtime~main.js.map": "/dashboard/static/js/runtime~main.81312d4a.js.map",
-  "static/media/index.css": "/dashboard/static/media/roboto-latin-500italic.ffcc050b.woff",
+  "static/media/index.css": "/dashboard/static/media/roboto-latin-900.8c2ade50.woff",
   "static/css/1.9305d7b2.chunk.css.map": "/dashboard/static/css/1.9305d7b2.chunk.css.map",
   "static/css/main.87371534.chunk.css.map": "/dashboard/static/css/main.87371534.chunk.css.map",
   "index.html": "/dashboard/index.html",
-  "precache-manifest.e8b90615170d9cfd61144824a0771b26.js": "/dashboard/precache-manifest.e8b90615170d9cfd61144824a0771b26.js",
+  "precache-manifest.1c0df67f3093c1cbaf3d7aa4e3df4f3e.js": "/dashboard/precache-manifest.1c0df67f3093c1cbaf3d7aa4e3df4f3e.js",
   "service-worker.js": "/dashboard/service-worker.js"
 }
