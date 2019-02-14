@@ -5,11 +5,12 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import emojiEndpoints from '../constants/emojiEndpoints'
 
-const createChartCard = (ChartComponent, EmojiFeedback) => props => {
+const createTableCard = (TableComponent, EmojiFeedback) => props => {
   const {
     classes,
     feedbackId,
-    dataURL,
+    tableHead,
+    tableData,
     xs = 12,
     sm = 6,
     md = 4
@@ -39,7 +40,8 @@ const createChartCard = (ChartComponent, EmojiFeedback) => props => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <ChartComponent dataURL={dataURL} />
+          <TableComponent tableHead={tableHead}
+            tableData={tableData} />
         </Grid>
         {EmojiFeedback !== undefined ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} /> : null}
       </Paper>
@@ -47,4 +49,4 @@ const createChartCard = (ChartComponent, EmojiFeedback) => props => {
   )
 }
 
-export default createChartCard
+export default createTableCard
