@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import LineChart from '../components/LineChart'
+import Link from '@material-ui/core/Link'
 import createChartCard from '../higherOrderComponents/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
@@ -38,7 +39,28 @@ const Home = ({ classes }) => {
         <Grid item xs={12}>
           <Typography variant='h2'>Overview Dashboard</Typography>
         </Grid>
-        <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} />
+        <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} >
+          <Grid item container>
+            <Grid item xs={6} container direction='column' spacing={8}>
+              <Grid item>
+                <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
+              </Grid>
+              <Grid item>
+                <Typography gutterBottom variant='h6'>423</Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={6} container direction='column' spacing={8}>
+              <Grid item>
+                <Typography gutterBottom variant='subtitle2' align='right'>
+                  <Link>View Report</Link>
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </LineChartCard>
         <BarChartCard dataURL={barChartURL} feedbackId={'barChart'} classes={classes} />
         <GroupedBarChartCard dataURL={groupedBarChartURL} feedbackId={'groupedBarChart'} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
@@ -50,7 +72,28 @@ const Home = ({ classes }) => {
           ]}
           classes={classes}
           feedbackId={'table'}
-        />
+        >
+          <Grid item container>
+            <Grid item xs={6} container direction='column' spacing={8}>
+              <Grid item>
+                <Typography gutterBottom variant='subtitle2'>Table</Typography>
+              </Grid>
+              <Grid item>
+                <Typography gutterBottom variant='h6'>423</Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={6} container direction='column' spacing={8}>
+              <Grid item>
+                <Typography gutterBottom variant='subtitle2' align='right'>
+                  <Link>View Report</Link>
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </TableCard>
       </Grid>
     </div >
   )
