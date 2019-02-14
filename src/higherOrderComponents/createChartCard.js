@@ -1,31 +1,14 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import LineChart from '../components/LineChart'
-import BarChart from '../components/BarChart'
-import GroupedBarChart from '../components/GroupedBarChart'
-import Table from '../components/Table'
 import emojiEndpoints from '../constants/emojiEndpoints'
-import { barChartURL, groupedBarChartURL, lineChartURL } from '../data/gistURLs'
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    color: theme.palette.text.secondary
-  }
-})
-
-const ChartCard = (ChartComponent, EmojiFeedback) => props => {
+const createChartCard = (ChartComponent, EmojiFeedback) => props => {
   const {
     classes,
-    id,
+    feedbackId,
     dataURL
   } = props
 
@@ -55,10 +38,10 @@ const ChartCard = (ChartComponent, EmojiFeedback) => props => {
         <Grid item xs={12}>
           <ChartComponent dataURL={dataURL} />
         </Grid>
-        {EmojiFeedback !== undefined ? <EmojiFeedback id={id} popoverText={'give feedback'} endpoints={emojiEndpoints} /> : null}
+        {EmojiFeedback !== undefined ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} /> : null}
       </Paper>
     </Grid>
   )
 }
 
-export default ChartCard
+export default createChartCard
