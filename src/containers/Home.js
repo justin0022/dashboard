@@ -36,9 +36,6 @@ const Home = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        <Grid item xs={12}>
-          <Typography variant='h2'>Overview Dashboard</Typography>
-        </Grid>
         <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} >
           <Grid item container>
             <Grid item xs={12} container direction='column' spacing={8}>
