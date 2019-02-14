@@ -24,7 +24,7 @@ const Assignments = ({ classes }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart dataURL={groupedBarChartURL} aspectRatio={0.25} />
+            <GroupedBarChart dataURL={groupedBarChartURL} aspectRatio={0.5} />
           </Paper>
         </Grid>
       </Grid>
