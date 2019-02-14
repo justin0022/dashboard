@@ -1,13 +1,23 @@
-import emojiFeedback from '@justin0022/emoji-feedback'
-import withPopover from '../higherOrderComponents/withPopover'
 import React, { useEffect, memo } from 'react'
+import emojiFeedback from '@justin0022/emoji-feedback'
+import { withStyles } from '@material-ui/core/styles'
+import withPopover from '../higherOrderComponents/withPopover'
+import compose from '../util/compose'
+
+const styles = ({
+  feedback: {
+    width: '310px',
+    height: '350px',
+    padding: '12px'
+  }
+})
 
 const EmojiFeedback = memo(props => {
   const {
     endpoints,
     id,
     options,
-    style
+    classes
   } = props
 
   useEffect(() => {
@@ -16,8 +26,11 @@ const EmojiFeedback = memo(props => {
   })
 
   return (
-    <div id={id} className={style} />
+    <div id={id} className={classes.feedback} />
   )
 })
 
-export default withPopover(EmojiFeedback)
+export default compose(
+  withStyles(styles),
+  withPopover
+)(EmojiFeedback)

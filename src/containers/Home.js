@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import LineChart from '../components/LineChart'
+import ChartCard from '../components/ChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
@@ -29,40 +30,15 @@ const styles = theme => ({
 })
 
 const Home = ({ classes }) => {
+  const LineChartCard = ChartCard(LineChart, EmojiFeedback)
+
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
         <Grid item xs={12}>
           <Typography variant='h2'>Overview Dashboard</Typography>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Paper className={classes.paper}>
-            <Grid item container>
-              <Grid item xs={6} container direction='column' spacing={8}>
-                <Grid item>
-                  <Typography gutterBottom variant='subtitle2'>Total Logins</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography gutterBottom variant='h6'>423</Typography>
-                </Grid>
-              </Grid>
-              <Grid item xs={6} container direction='column' spacing={8}>
-                <Grid item>
-                  <Typography gutterBottom variant='subtitle2' align='right'>
-                    <Link>View Report</Link>
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography gutterBottom variant='h6' align='right'>82.6%</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={12}>
-              <LineChart dataURL={lineChartURL} />
-            </Grid>
-            <EmojiFeedback id='lineChart' popoverText={'give feedback'} endpoints={emojiEndpoints} style={classes.feedback} />
-          </Paper>
-        </Grid>
+        <LineChartCard dataURL={lineChartURL} id={'lineChartId'} classes={classes} />
         <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>

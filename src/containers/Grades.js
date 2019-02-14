@@ -21,11 +21,6 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary
-  },
-  feedback: {
-    width: '310px',
-    height: '350px',
-    padding: '12px'
   }
 })
 
@@ -46,14 +41,14 @@ const Grades = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart dataURL={groupedBarChartURL} tip={tip} aspectRatio={0.5} />
-            <EmojiFeedback id='groupedBarChartFeedback' popoverText={'give feedback'} style={classes.feedback} endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
+            <EmojiFeedback id='groupedBarChartFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
             <Typography>Sankey Diagram</Typography>
             <Sankey dataURL={sankeyURL} />
-            <EmojiFeedback id='sankeyFeedback' popoverText={'give feedback'} style={classes.feedback} endpoints={emojiEndpoints} />
+            <EmojiFeedback id='sankeyFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
