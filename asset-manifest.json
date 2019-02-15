@@ -1,16 +1,16 @@
 {
   "main.css": "/dashboard/static/css/main.0e5662dd.chunk.css",
-  "main.js": "/dashboard/static/js/main.0030d1be.chunk.js",
-  "main.js.map": "/dashboard/static/js/main.0030d1be.chunk.js.map",
+  "main.js": "/dashboard/static/js/main.22f6487d.chunk.js",
+  "main.js.map": "/dashboard/static/js/main.22f6487d.chunk.js.map",
   "static/css/1.d3fff736.chunk.css": "/dashboard/static/css/1.d3fff736.chunk.css",
-  "static/js/1.9f3df334.chunk.js": "/dashboard/static/js/1.9f3df334.chunk.js",
-  "static/js/1.9f3df334.chunk.js.map": "/dashboard/static/js/1.9f3df334.chunk.js.map",
+  "static/js/1.5b8642dd.chunk.js": "/dashboard/static/js/1.5b8642dd.chunk.js",
+  "static/js/1.5b8642dd.chunk.js.map": "/dashboard/static/js/1.5b8642dd.chunk.js.map",
   "runtime~main.js": "/dashboard/static/js/runtime~main.81312d4a.js",
   "runtime~main.js.map": "/dashboard/static/js/runtime~main.81312d4a.js.map",
-  "static/media/index.css": "/dashboard/static/media/roboto-latin-700italic.010c1aee.woff2",
-  "static/css/1.d3fff736.chunk.css.map": "/dashboard/static/css/1.d3fff736.chunk.css.map",
+  "static/media/index.css": "/dashboard/static/media/roboto-latin-900italic.7b770d6c.woff2",
   "static/css/main.0e5662dd.chunk.css.map": "/dashboard/static/css/main.0e5662dd.chunk.css.map",
+  "static/css/1.d3fff736.chunk.css.map": "/dashboard/static/css/1.d3fff736.chunk.css.map",
   "index.html": "/dashboard/index.html",
-  "precache-manifest.2b52f9dd291421c8e6b8f5a713ecb162.js": "/dashboard/precache-manifest.2b52f9dd291421c8e6b8f5a713ecb162.js",
+  "precache-manifest.bd8e7862495f374e0de1b5fac0bf2496.js": "/dashboard/precache-manifest.bd8e7862495f374e0de1b5fac0bf2496.js",
   "service-worker.js": "/dashboard/service-worker.js"
 }
