@@ -4,12 +4,13 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import LineChart from '../components/LineChart'
 import Link from '@material-ui/core/Link'
+import MapChart from '../components/MapChart'
 import createChartCard from '../higherOrderComponents/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
 import createTableCard from '../higherOrderComponents/createTableCard'
 
 const styles = theme => ({
@@ -31,6 +32,7 @@ const LineChartCard = createChartCard(LineChart, EmojiFeedback)
 const BarChartCard = createChartCard(BarChart, EmojiFeedback)
 const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
 const TableCard = createTableCard(Table, EmojiFeedback)
+const MapChartCard = createChartCard(MapChart)
 
 const Home = props => {
   const { classes } = props
@@ -79,6 +81,7 @@ const Home = props => {
             </Grid>
           </Grid>
         </TableCard>
+        <MapChartCard dataURL={mapURL} classes={classes} xs={12} />
       </Grid>
     </div >
   )
