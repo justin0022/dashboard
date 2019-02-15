@@ -8,10 +8,12 @@ import LineChart from '../components/LineChart'
 import createChartCard from '../higherOrderComponents/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
+import MapChart from '../components/MapChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
 import emojiEndpoints from '../constants/emojiEndpoints'
-import { barChartURL, groupedBarChartURL, lineChartURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
+import { create } from 'jss';
 
 const styles = theme => ({
   root: {
@@ -32,6 +34,7 @@ const Home = ({ classes }) => {
   const LineChartCard = createChartCard(LineChart, EmojiFeedback)
   const BarChartCard = createChartCard(BarChart, EmojiFeedback)
   const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
+  const MapChartCard = createChartCard(MapChart);
 
   return (
     <div className={classes.root}>
@@ -42,6 +45,7 @@ const Home = ({ classes }) => {
         <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} />
         <BarChartCard dataURL={barChartURL} feedback={'barChart'} classes={classes} />
         <GroupedBarChartCard dataURL={groupedBarChartURL} feedback={'groupedBarChart'} classes={classes} />
+        <MapChartCard dataURL={mapURL} classes={classes} xs={12} />
         <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Grid item container>
