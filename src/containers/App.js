@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import DashboardAppBar from '../components/DashboardAppBar'
 import SideDrawer from '../components/SideDrawer'
-import Grades from './Grades'
-import Assignments from './Assignments'
+import Student from './Student'
+import Instructor from './Instructor'
 import Home from './Home'
 
 const App = () => {
@@ -22,8 +22,8 @@ const App = () => {
         <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} user={user} />
         <SideDrawer toggleDrawer={setSideDrawerState} sideDrawerState={sideDrawerState} />
         <Route path='/' exact component={Home} />
-        <Route path='/Grades/' component={Grades} />
-        <Route path='/Assignments/' component={Assignments} />
+        <Route path='/Instructor/' component={Instructor} />
+        <Route path='/Student/' component={Student} />
       </div>
     </Router>
   )

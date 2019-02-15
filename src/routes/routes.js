@@ -7,14 +7,9 @@ const Routes = [
     icon: Home
   },
   {
-    path: '/Grades',
-    sidebarName: 'Grades',
+    path: '/Student',
+    sidebarName: 'Student',
     icon: Grade
-  },
-  {
-    path: '/Assignments',
-    sidebarName: 'Assignments',
-    icon: Assessment
   },
   {
     path: '/Instructor',
