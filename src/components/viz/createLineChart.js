@@ -1,6 +1,43 @@
 import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
+import createSVG from './createSVG'
+import createLine from './createLine'
+
+const anotherLine = [
+  {
+    'label': 0,
+    'data': 4
+  },
+  {
+    'label': 1,
+    'data': 1
+  },
+  {
+    'label': 2,
+    'data': 3
+  },
+  {
+    'label': 3,
+    'data': 2
+  },
+  {
+    'label': 4,
+    'data': 4
+  },
+  {
+    'label': 5,
+    'data': 2.5
+  },
+  {
+    'label': 6,
+    'data': 1
+  },
+  {
+    'label': 7,
+    'data': 4
+  }
+]
 
 const createLineChart = ({ data, width, height, el }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
@@ -13,11 +50,6 @@ const createLineChart = ({ data, width, height, el }) => {
     .domain([0, d3.max(data, d => d.data)]).nice()
     .range([aHeight - margin.bottom, margin.top])
 
-  const line = d3.line()
-    .defined(d => !isNaN(d.data))
-    .x(d => x(d.label))
-    .y(d => y(d.data))
-
   const xAxis = g => g
     .attr('transform', `translate(0,${aHeight - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(aWidth / 80).tickSizeOuter(0))
@@ -26,24 +58,16 @@ const createLineChart = ({ data, width, height, el }) => {
     .attr('transform', `translate(${margin.left},0)`)
     .call(d3.axisLeft(y))
 
-  const svg = d3.select(el).append('svg')
-    .attr('width', aWidth)
-    .attr('height', aHeight)
+  const svg = createSVG({ el, width, height })
+
+  createLine({ svg, x, y, data })
+  createLine({ svg, x, y, data: anotherLine })
 
   svg.append('g')
     .call(xAxis)
 
   svg.append('g')
     .call(yAxis)
-
-  svg.append('path')
-    .datum(data)
-    .attr('fill', 'none')
-    .attr('stroke', 'steelblue')
-    .attr('stroke-width', 1.5)
-    .attr('stroke-linejoin', 'round')
-    .attr('stroke-linecap', 'round')
-    .attr('d', line)
 }
 
 export default createLineChart

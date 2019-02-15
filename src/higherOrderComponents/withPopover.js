@@ -19,7 +19,6 @@ const withPopover = Component => props => {
         { popoverText }
       </Button>
       <Popover
-        id='simple-popper'
         open={open}
         anchorEl={anchorEl}
         onClose={() => setAnchorEl(null)}
