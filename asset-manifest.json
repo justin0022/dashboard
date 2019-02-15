@@ -7,10 +7,10 @@
   "static/js/1.5b8642dd.chunk.js.map": "/dashboard/static/js/1.5b8642dd.chunk.js.map",
   "runtime~main.js": "/dashboard/static/js/runtime~main.81312d4a.js",
   "runtime~main.js.map": "/dashboard/static/js/runtime~main.81312d4a.js.map",
-  "static/media/index.css": "/dashboard/static/media/roboto-latin-700.cf6613d1.woff",
+  "static/media/index.css": "/dashboard/static/media/roboto-latin-400italic.d8bcbe72.woff2",
   "static/css/main.0e5662dd.chunk.css.map": "/dashboard/static/css/main.0e5662dd.chunk.css.map",
   "static/css/1.d3fff736.chunk.css.map": "/dashboard/static/css/1.d3fff736.chunk.css.map",
   "index.html": "/dashboard/index.html",
-  "precache-manifest.1351cdc9ef16b195780c579520df33c4.js": "/dashboard/precache-manifest.1351cdc9ef16b195780c579520df33c4.js",
+  "precache-manifest.f0c1fb3d3ff22ea88f3884dcabb3dce9.js": "/dashboard/precache-manifest.f0c1fb3d3ff22ea88f3884dcabb3dce9.js",
   "service-worker.js": "/dashboard/service-worker.js"
 }
