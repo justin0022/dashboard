@@ -10,7 +10,6 @@ import GroupedBarChart from '../components/GroupedBarChart'
 import MapChart from '../components/MapChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import emojiEndpoints from '../constants/emojiEndpoints'
 import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
 import createTableCard from '../higherOrderComponents/createTableCard'
 
