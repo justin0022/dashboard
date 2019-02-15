@@ -1,16 +1,16 @@
 {
   "main.css": "/dashboard/static/css/main.0e5662dd.chunk.css",
-  "main.js": "/dashboard/static/js/main.d086ff36.chunk.js",
-  "main.js.map": "/dashboard/static/js/main.d086ff36.chunk.js.map",
+  "main.js": "/dashboard/static/js/main.0030d1be.chunk.js",
+  "main.js.map": "/dashboard/static/js/main.0030d1be.chunk.js.map",
   "static/css/1.d3fff736.chunk.css": "/dashboard/static/css/1.d3fff736.chunk.css",
-  "static/js/1.e6c9a4cc.chunk.js": "/dashboard/static/js/1.e6c9a4cc.chunk.js",
-  "static/js/1.e6c9a4cc.chunk.js.map": "/dashboard/static/js/1.e6c9a4cc.chunk.js.map",
+  "static/js/1.9f3df334.chunk.js": "/dashboard/static/js/1.9f3df334.chunk.js",
+  "static/js/1.9f3df334.chunk.js.map": "/dashboard/static/js/1.9f3df334.chunk.js.map",
   "runtime~main.js": "/dashboard/static/js/runtime~main.81312d4a.js",
   "runtime~main.js.map": "/dashboard/static/js/runtime~main.81312d4a.js.map",
-  "static/media/index.css": "/dashboard/static/media/roboto-latin-100italic.d704bb3d.woff",
+  "static/media/index.css": "/dashboard/static/media/roboto-latin-700italic.010c1aee.woff2",
   "static/css/1.d3fff736.chunk.css.map": "/dashboard/static/css/1.d3fff736.chunk.css.map",
   "static/css/main.0e5662dd.chunk.css.map": "/dashboard/static/css/main.0e5662dd.chunk.css.map",
   "index.html": "/dashboard/index.html",
-  "precache-manifest.808e5caff7635bed4474eb99652ea0e1.js": "/dashboard/precache-manifest.808e5caff7635bed4474eb99652ea0e1.js",
+  "precache-manifest.2b52f9dd291421c8e6b8f5a713ecb162.js": "/dashboard/precache-manifest.2b52f9dd291421c8e6b8f5a713ecb162.js",
   "service-worker.js": "/dashboard/service-worker.js"
 }
