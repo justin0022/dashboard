@@ -7,9 +7,11 @@ import Link from '@material-ui/core/Link'
 import createChartCard from '../higherOrderComponents/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
+import MapChart from '../components/MapChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL } from '../data/gistURLs'
+import emojiEndpoints from '../constants/emojiEndpoints'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
 import createTableCard from '../higherOrderComponents/createTableCard'
 
 const styles = theme => ({
@@ -27,13 +29,12 @@ const styles = theme => ({
   }
 })
 
-const LineChartCard = createChartCard(LineChart, EmojiFeedback)
-const BarChartCard = createChartCard(BarChart, EmojiFeedback)
-const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
-const TableCard = createTableCard(Table, EmojiFeedback)
-
-const Home = props => {
-  const { classes } = props
+const Home = ({ classes }) => {
+  const LineChartCard = createChartCard(LineChart, EmojiFeedback)
+  const BarChartCard = createChartCard(BarChart, EmojiFeedback)
+  const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
+  const MapChartCard = createChartCard(MapChart)
+  const TableCard = createTableCard(Table, EmojiFeedback)
 
   return (
     <div className={classes.root}>
@@ -79,6 +80,7 @@ const Home = props => {
             </Grid>
           </Grid>
         </TableCard>
+        <MapChartCard dataURL={mapURL} classes={classes} xs={12} />
       </Grid>
     </div >
   )
