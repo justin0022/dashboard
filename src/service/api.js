@@ -1,9 +1,9 @@
 /* global fetch */
 
-const getJSONFromGist = url => {
+const get = url => {
   return fetch(url)
     .then(res => res.text())
     .then(data => JSON.parse(data))
 }
 
-export default getJSONFromGist
+export default get

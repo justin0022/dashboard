@@ -1,4 +1,5 @@
 import React from 'react'
+import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -37,10 +38,15 @@ const MapChartCard = createChartCard(MapChart)
 const Home = props => {
   const { classes } = props
 
+  const lineChartData = useData(lineChartURL)
+  const groupedBarChartData = useData(groupedBarChartURL)
+  const barChartData = useData(barChartURL)
+  const mapChartData = useData(mapURL)
+
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} >
+        <LineChartCard data={lineChartData} feedbackId={'lineChartId'} classes={classes} >
           <Grid item container>
             <Grid item xs={12} container direction='column' spacing={8}>
               <Grid item>
@@ -49,8 +55,8 @@ const Home = props => {
             </Grid>
           </Grid>
         </LineChartCard>
-        <BarChartCard dataURL={barChartURL} feedbackId={'barChart'} classes={classes} />
-        <GroupedBarChartCard dataURL={groupedBarChartURL} feedbackId={'groupedBarChart'} classes={classes} />
+        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} />
+        <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
           tableData={[
             ['1', 'Dakota Rice', '$36,738', 'Niger'],
@@ -81,7 +87,7 @@ const Home = props => {
             </Grid>
           </Grid>
         </TableCard>
-        <MapChartCard dataURL={mapURL} classes={classes} xs={12} />
+        <MapChartCard data={mapChartData} classes={classes} xs={12} />
       </Grid>
     </div >
   )

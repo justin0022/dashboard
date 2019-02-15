@@ -7,7 +7,7 @@ const createChartCard = (ChartComponent, EmojiFeedback) => props => {
   const {
     classes,
     feedbackId,
-    dataURL,
+    data,
     xs = 12,
     sm = 6,
     md = 4
@@ -18,7 +18,7 @@ const createChartCard = (ChartComponent, EmojiFeedback) => props => {
       <Paper className={classes.paper}>
         {props.children}
         <Grid item xs={12}>
-          <ChartComponent dataURL={dataURL} />
+          <ChartComponent data={data} />
         </Grid>
         {EmojiFeedback !== undefined
           ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} />
