@@ -1,8 +1,16 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import LogoutIcon from '@material-ui/icons/ExitToApp'
+import HelpIcon from '@material-ui/icons/HelpOutline'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 const styles = theme => ({
   root: {
@@ -13,7 +21,10 @@ const styles = theme => ({
   },
   avatar: {
     padding: '10px',
-    margin: '10px'
+    marginTop: '10px',
+    marginBottom: '10px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 })
 
@@ -25,7 +36,7 @@ const AvatarModal = props => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
+      <Grid container>
         <Grid item xs={4}>
           <Avatar className={classes.avatar}>{`${user.firstName.slice(0, 1)}${user.lastName.slice(0, 1)}`}</Avatar>
         </Grid>
@@ -34,7 +45,29 @@ const AvatarModal = props => {
           <Typography variant='subtitle2'>{user.email}</Typography>
         </Grid>
         <Grid item xs={12}>
-
+          <List>
+            <Divider />
+            <ListItem button>
+              <ListItemIcon>
+                <HelpIcon />
+              </ListItemIcon>
+              <ListItemText inset primary='Help' />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
+              <ListItemText inset primary='Settings' />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText inset primary='Logout' />
+            </ListItem>
+          </List>
         </Grid>
       </Grid>
     </div>
