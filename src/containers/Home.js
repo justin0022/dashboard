@@ -13,7 +13,6 @@ import EmojiFeedback from '../components/EmojiFeedback'
 import emojiEndpoints from '../constants/emojiEndpoints'
 import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
 import createTableCard from '../higherOrderComponents/createTableCard'
-import { create } from 'jss'
 
 const styles = theme => ({
   root: {
@@ -34,7 +33,7 @@ const Home = ({ classes }) => {
   const LineChartCard = createChartCard(LineChart, EmojiFeedback)
   const BarChartCard = createChartCard(BarChart, EmojiFeedback)
   const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
-  const MapChartCard = createChartCard(MapChart);
+  const MapChartCard = createChartCard(MapChart)
   const TableCard = createTableCard(Table, EmojiFeedback)
 
   return (
