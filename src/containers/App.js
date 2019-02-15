@@ -12,7 +12,8 @@ const App = () => {
   const user = {
     firstName: 'Justin',
     lastName: 'Lee',
-    email: 'something@something.ca'
+    email: 'something@something.ca',
+    numberOfNotifications: 15
   }
 
   return (

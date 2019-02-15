@@ -41,10 +41,9 @@ const styles = theme => ({
 const DashboardAppBar = props => {
   const { classes, onMenuBarClick, sideDrawerState, user } = props
 
-  const [notificationEl, setNotificationEl] = useState(null)
+  // const [notificationEl, setNotificationEl] = useState(null)
   const [avatarEl, setAvatarEl] = useState(null)
 
-  const notificationOpen = Boolean(notificationEl)
   const avatarOpen = Boolean(avatarEl)
 
   return (
@@ -65,30 +64,12 @@ const DashboardAppBar = props => {
           </Button>
           <div className={classes.grow} />
           <IconButton
-            onClick={event => setNotificationEl(event.currentTarget)}
-            aria-owns={notificationOpen ? 'simple-popper' : undefined}
-            color='inherit'
-            aria-haspopup='true'
-            variant='contained'>
-            <Badge badgeContent={17} color='secondary'>
+            // onClick={event => setNotificationEl(event.currentTarget)}
+            color='inherit'>
+            <Badge badgeContent={user.numberOfNotifications} color='secondary'>
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <Popover
-            open={notificationOpen}
-            anchorEl={notificationEl}
-            onClose={() => setNotificationEl(null)}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center'
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center'
-            }}
-          >
-            <Typography>The content of the Popover.</Typography>
-          </Popover>
           <IconButton
             aria-owns={avatarOpen ? 'simple-popper' : undefined}
             onClick={event => setAvatarEl(event.currentTarget)}
