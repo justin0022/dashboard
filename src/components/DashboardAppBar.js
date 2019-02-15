@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Link, withRouter } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar'
@@ -9,6 +9,9 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import Badge from '@material-ui/core/Badge'
 import NotificationsIcon from '@material-ui/icons/Notifications'
+import Avatar from '@material-ui/core/Avatar'
+import Popover from '@material-ui/core/Popover'
+import AvatarModal from './AvatarModal'
 
 const styles = theme => ({
   root: {
@@ -36,8 +39,13 @@ const styles = theme => ({
 })
 
 const DashboardAppBar = props => {
-  const { classes, onMenuBarClick, sideDrawerState } = props
-  const [notificationModalState, setNotificationModalState] = useState(false)
+  const { classes, onMenuBarClick, sideDrawerState, user } = props
+
+  const [notificationEl, setNotificationEl] = useState(null)
+  const [avatarEl, setAvatarEl] = useState(null)
+
+  const notificationOpen = Boolean(notificationEl)
+  const avatarOpen = Boolean(avatarEl)
 
   return (
     <div>
@@ -56,11 +64,54 @@ const DashboardAppBar = props => {
             </Typography>
           </Button>
           <div className={classes.grow} />
-          <IconButton color='inherit' onClick={() => setNotificationModalState(!notificationModalState)}>
+          <IconButton
+            onClick={event => setNotificationEl(event.currentTarget)}
+            aria-owns={notificationOpen ? 'simple-popper' : undefined}
+            color='inherit'
+            aria-haspopup='true'
+            variant='contained'>
             <Badge badgeContent={17} color='secondary'>
               <NotificationsIcon />
             </Badge>
           </IconButton>
+          <Popover
+            open={notificationOpen}
+            anchorEl={notificationEl}
+            onClose={() => setNotificationEl(null)}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center'
+            }}
+          >
+            <Typography>The content of the Popover.</Typography>
+          </Popover>
+          <IconButton
+            aria-owns={avatarOpen ? 'simple-popper' : undefined}
+            onClick={event => setAvatarEl(event.currentTarget)}
+            color='inherit'
+            aria-haspopup='true'
+            variant='contained'>
+            <Avatar>{`${user.firstName.slice(0, 1)}${user.lastName.slice(0, 1)}`}</Avatar>
+          </IconButton>
+          <Popover
+            open={avatarOpen}
+            anchorEl={avatarEl}
+            onClose={() => setAvatarEl(null)}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center'
+            }}
+          >
+            <AvatarModal user={user} />
+          </Popover>
         </Toolbar>
       </AppBar>
     </div >

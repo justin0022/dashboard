@@ -9,10 +9,16 @@ import Home from './Home'
 const App = () => {
   const [sideDrawerState, setSideDrawerState] = useState(false)
 
+  const user = {
+    firstName: 'Justin',
+    lastName: 'Lee',
+    email: 'something@something.ca'
+  }
+
   return (
     <Router basename='/dashboard/'>
       <div>
-        <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} />
+        <DashboardAppBar onMenuBarClick={setSideDrawerState} sideDrawerState={sideDrawerState} user={user} />
         <SideDrawer toggleDrawer={setSideDrawerState} sideDrawerState={sideDrawerState} />
         <Route path='/' exact component={Home} />
         <Route path='/Grades/' component={Grades} />
