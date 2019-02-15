@@ -39,6 +39,17 @@ const Student = ({ classes }) => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
+            <Typography>Histogram</Typography >
+            <Histogram
+              dataURL={histogramURL}
+              tip={createToolTip(d => `<p>${d.length}</p>`)}
+              aspectRatio={0.3}
+              cAxisLabel={'Grade %'}
+              yAxisLabel={'Number of Students'} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart dataURL={groupedBarChartURL} tip={tip} aspectRatio={0.5} />
             <EmojiFeedback id='groupedBarChartFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
@@ -55,12 +66,6 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
             <BarChart dataURL={barChartURL} tip={tip} />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Paper className={classes.paper}>
-            <Typography>Histogram</Typography >
-            <Histogram dataURL={histogramURL} tip={createToolTip(d => `<p>${d.length}</p>`)} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>

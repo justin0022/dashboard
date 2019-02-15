@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
 
-const createHistogram = ({ data, width, height, el, tip }) => {
+const createHistogram = ({ data, width, height, el, tip, color, xAxisLabel, yAxisLabel }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()
@@ -11,7 +11,7 @@ const createHistogram = ({ data, width, height, el, tip }) => {
 
   const bins = d3.histogram()
     .domain(x.domain())
-    .thresholds(x.ticks(10))(data)
+    .thresholds(x.ticks(40))(data)
 
   const y = d3.scaleLinear()
     .domain([0, d3.max(bins, d => d.length)]).nice()
@@ -31,14 +31,19 @@ const createHistogram = ({ data, width, height, el, tip }) => {
 
   const xAxis = g => g
     .attr(`transform`, `translate(0, ${aHeight - margin.bottom})`)
-    .call(d3.axisBottom(x).tickSizeOuter(0))
+    .call(d3
+      .axisBottom(x)
+      .tickSizeOuter(0)
+      .tickValues([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+      .tickFormat(d => `${d}%`)
+    )
     .call(g => g.append('text')
       .attr('x', aWidth - margin.right)
       .attr('y', -4)
       .attr('fill', '#000')
       .attr('font-weight', 'bold')
       .attr('text-anchor', 'end')
-      .text(data.x)
+      .text(xAxisLabel)
     )
 
   const yAxis = g => g
@@ -49,7 +54,7 @@ const createHistogram = ({ data, width, height, el, tip }) => {
       .attr('fill', '#000')
       .attr('text-anchor', 'start')
       .attr('font-weight', 'bold')
-      .text(data.y)
+      .text(yAxisLabel)
     )
 
   svg.append('g')
