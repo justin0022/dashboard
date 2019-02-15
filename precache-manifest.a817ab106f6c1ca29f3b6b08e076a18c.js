@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "22f6487dc6c54766d13a",
-    "url": "/dashboard/static/css/main.0e5662dd.chunk.css"
+    "revision": "69a682c439dfe8c72692",
+    "url": "/dashboard/static/css/main.00848770.chunk.css"
   },
   {
-    "revision": "22f6487dc6c54766d13a",
-    "url": "/dashboard/static/js/main.22f6487d.chunk.js"
+    "revision": "69a682c439dfe8c72692",
+    "url": "/dashboard/static/js/main.69a682c4.chunk.js"
   },
   {
-    "revision": "5b8642dd75cf768a5ea8",
-    "url": "/dashboard/static/css/1.d3fff736.chunk.css"
+    "revision": "2096ca55b880b1dc6c25",
+    "url": "/dashboard/static/css/1.f654e770.chunk.css"
   },
   {
-    "revision": "5b8642dd75cf768a5ea8",
-    "url": "/dashboard/static/js/1.5b8642dd.chunk.js"
+    "revision": "2096ca55b880b1dc6c25",
+    "url": "/dashboard/static/js/1.2096ca55.chunk.js"
   },
   {
     "revision": "81312d4a81e499095a3d",
@@ -44,14 +44,6 @@ self.__precacheManifest = [
     "url": "/dashboard/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
-    "revision": "d704bb3d579b7d5e40880c75705c8a71",
-    "url": "/dashboard/static/media/roboto-latin-100italic.d704bb3d.woff"
-  },
-  {
-    "revision": "210a7c781f5a354a0e4985656ab456d9",
-    "url": "/dashboard/static/media/roboto-latin-300italic.210a7c78.woff"
-  },
-  {
     "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
     "url": "/dashboard/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
@@ -64,24 +56,32 @@ self.__precacheManifest = [
     "url": "/dashboard/static/media/roboto-latin-300.a1471d1d.woff"
   },
   {
+    "revision": "d704bb3d579b7d5e40880c75705c8a71",
+    "url": "/dashboard/static/media/roboto-latin-100italic.d704bb3d.woff"
+  },
+  {
     "revision": "d69924b98acd849cdeba9fbff3f88ea6",
     "url": "/dashboard/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
-    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
-    "url": "/dashboard/static/media/roboto-latin-400italic.9680d5a0.woff"
+    "revision": "210a7c781f5a354a0e4985656ab456d9",
+    "url": "/dashboard/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
     "url": "/dashboard/static/media/roboto-latin-400.bafb105b.woff"
   },
   {
-    "revision": "de8b7431b74642e830af4d4f4b513ec9",
-    "url": "/dashboard/static/media/roboto-latin-500.de8b7431.woff"
-  },
-  {
     "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
     "url": "/dashboard/static/media/roboto-latin-400italic.d8bcbe72.woff2"
+  },
+  {
+    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
+    "url": "/dashboard/static/media/roboto-latin-400italic.9680d5a0.woff"
+  },
+  {
+    "revision": "de8b7431b74642e830af4d4f4b513ec9",
+    "url": "/dashboard/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
     "revision": "510dec37fa69fba39593e01a469ee018",
@@ -92,20 +92,16 @@ self.__precacheManifest = [
     "url": "/dashboard/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
-    "revision": "bc833e725c137257c2c42a789845d82f",
-    "url": "/dashboard/static/media/roboto-latin-900italic.bc833e72.woff"
-  },
-  {
     "revision": "cf6613d1adf490972c557a8e318e0868",
     "url": "/dashboard/static/media/roboto-latin-700.cf6613d1.woff"
   },
   {
-    "revision": "846d1890aee87fde5d8ced8eba360c3a",
-    "url": "/dashboard/static/media/roboto-latin-700italic.846d1890.woff"
-  },
-  {
     "revision": "010c1aeee3c6d1cbb1d5761d80353823",
     "url": "/dashboard/static/media/roboto-latin-700italic.010c1aee.woff2"
+  },
+  {
+    "revision": "846d1890aee87fde5d8ced8eba360c3a",
+    "url": "/dashboard/static/media/roboto-latin-700italic.846d1890.woff"
   },
   {
     "revision": "8c2ade503b34e31430d6c98aa29a52a3",
@@ -116,7 +112,11 @@ self.__precacheManifest = [
     "url": "/dashboard/static/media/roboto-latin-900italic.7b770d6c.woff2"
   },
   {
-    "revision": "90679c51c17bbb94e35d36ac26a6f1bb",
+    "revision": "bc833e725c137257c2c42a789845d82f",
+    "url": "/dashboard/static/media/roboto-latin-900italic.bc833e72.woff"
+  },
+  {
+    "revision": "b2f3f6ca9335db10df20459b7e29520f",
     "url": "/dashboard/index.html"
   }
 ];
