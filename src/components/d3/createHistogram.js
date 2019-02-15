@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chartUtil'
 import { margin } from '../../constants/chartConstants'
 
-const createHistogram = ({ data, width, height, el, tip, color, xAxisLabel, yAxisLabel }) => {
+const createHistogram = ({ data, width, height, el, tip, xAxisLabel, yAxisLabel }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()
@@ -28,6 +28,15 @@ const createHistogram = ({ data, width, height, el, tip, color, xAxisLabel, yAxi
     .attr('width', d => Math.max(0, x(d.x1) - x(d.x0) - 1))
     .attr('y', d => y(d.length))
     .attr('height', d => y(0) - y(d.length))
+    .attr('fill', 'steelblue')
+
+  bar.append('text')
+    .attr('y', 10)
+    .attr('x', (x(bins[0].x1) - x(bins[0].x0)) / 2)
+    .attr('height', d => height - y(d.length) - 50)
+    .attr('text-anchor', 'middle')
+    .attr('color', 'white')
+    .text(d => d === 0 ? d.length : '')
 
   const xAxis = g => g
     .attr(`transform`, `translate(0, ${aHeight - margin.bottom})`)

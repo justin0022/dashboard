@@ -39,7 +39,7 @@ const Student = ({ classes }) => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography>Histogram</Typography >
+            <Typography variant='h5' gutterBottom>Grade Distribution</Typography >
             <Histogram
               dataURL={histogramURL}
               tip={createToolTip(d => `<p>${d.length}</p>`)}
@@ -62,7 +62,7 @@ const Student = ({ classes }) => {
             <EmojiFeedback id='sankeyFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
             <BarChart dataURL={barChartURL} tip={tip} />
