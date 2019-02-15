@@ -1,4 +1,4 @@
-import createLineChart from './viz/createLineChart'
+import createLineChart from './d3/createLineChart'
 import withResponsiveness from '../higherOrderComponents/withResponsiveness'
 import createChartComponent from '../higherOrderComponents/createChartComponent'
 import compose from '../util/compose'

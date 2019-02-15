@@ -24,7 +24,7 @@ const Instructor = props => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} />
+        <LineChartCard dataURL={lineChartURL} classes={classes} />
       </Grid>
     </div>
   )
