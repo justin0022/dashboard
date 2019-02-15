@@ -32,7 +32,7 @@ const specialEmojis = [
   { emojicon: '💩', emotion: 'poop' }
 ]
 
-const Grades = ({ classes }) => {
+const Student = ({ classes }) => {
   const tip = createToolTip(d => `<p>${d.data}</p>`)
   return (
     <div className={classes.root}>
@@ -80,4 +80,4 @@ const Grades = ({ classes }) => {
   )
 }
 
-export default withStyles(styles)(Grades)
+export default withStyles(styles)(Student)

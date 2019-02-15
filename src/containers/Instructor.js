@@ -1,7 +1,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import createChartCard from '../higherOrderComponents/createChartCard'
+import { lineChartURL } from '../data/gistURLs'
+import LineChart from '../components/LineChart'
+// import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   root: {
@@ -13,13 +16,15 @@ const styles = theme => ({
   }
 })
 
+const LineChartCard = createChartCard(LineChart)
+
 const Instructor = props => {
   const { classes } = props
 
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-
+        <LineChartCard dataURL={lineChartURL} feedbackId={'lineChartId'} classes={classes} />
       </Grid>
     </div>
   )
