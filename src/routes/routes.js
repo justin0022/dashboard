@@ -15,6 +15,11 @@ const Routes = [
     path: '/Assignments',
     sidebarName: 'Assignments',
     icon: Assessment
+  },
+  {
+    path: '/Instructor',
+    sidebarName: 'Instructor',
+    icon: Assessment
   }
 ]
 

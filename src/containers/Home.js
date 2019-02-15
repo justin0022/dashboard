@@ -32,7 +32,9 @@ const BarChartCard = createChartCard(BarChart, EmojiFeedback)
 const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
 const TableCard = createTableCard(Table, EmojiFeedback)
 
-const Home = ({ classes }) => {
+const Home = props => {
+  const { classes } = props
+
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
@@ -55,8 +57,7 @@ const Home = ({ classes }) => {
             ['4', 'Philip Chaney', '$38,735', 'Korea, South']
           ]}
           classes={classes}
-          feedbackId={'table'}
-        >
+          feedbackId={'table'}>
           <Grid item container>
             <Grid item xs={6} container direction='column' spacing={8}>
               <Grid item>
