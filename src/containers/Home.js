@@ -28,13 +28,13 @@ const styles = theme => ({
   }
 })
 
-const Home = ({ classes }) => {
-  const LineChartCard = createChartCard(LineChart, EmojiFeedback)
-  const BarChartCard = createChartCard(BarChart, EmojiFeedback)
-  const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
-  const MapChartCard = createChartCard(MapChart)
-  const TableCard = createTableCard(Table, EmojiFeedback)
+const LineChartCard = createChartCard(LineChart, EmojiFeedback)
+const BarChartCard = createChartCard(BarChart, EmojiFeedback)
+const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
+const MapChartCard = createChartCard(MapChart)
+const TableCard = createTableCard(Table, EmojiFeedback)
 
+const Home = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>

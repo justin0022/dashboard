@@ -1,4 +1,5 @@
 import React from 'react'
+import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -34,6 +35,13 @@ const specialEmojis = [
 
 const Student = ({ classes }) => {
   const tip = createToolTip(d => `<p>${d.data}</p>`)
+
+  const groupedBarChartData = useData(groupedBarChartURL)
+  const sankeyData = useData(sankeyURL)
+  const barChartData = useData(barChartURL)
+  const lineChartData = useData(lineChartURL)
+  const histogramData = useData(histogramURL)
+
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -51,33 +59,33 @@ const Student = ({ classes }) => {
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
-            <GroupedBarChart dataURL={groupedBarChartURL} tip={tip} aspectRatio={0.5} />
+            <GroupedBarChart data={groupedBarChartData} tip={tip} aspectRatio={0.5} />
             <EmojiFeedback id='groupedBarChartFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} options={{ emojis: specialEmojis }} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
             <Typography>Sankey Diagram</Typography>
-            <Sankey dataURL={sankeyURL} />
+            <Sankey data={sankeyData} />
             <EmojiFeedback id='sankeyFeedback' popoverText={'give feedback'} endpoints={emojiEndpoints} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
-            <BarChart dataURL={barChartURL} tip={tip} />
+            <BarChart data={barChartData} tip={tip} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Typography>Line Chart</Typography>
-            <LineChart dataURL={lineChartURL} />
+            <LineChart data={lineChartData} />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Paper className={classes.paper}>
             <Typography>Bar Chart</Typography>
-            <BarChart dataURL={barChartURL} tip={tip} />
+            <BarChart data={barChartData} tip={tip} />
           </Paper>
         </Grid>
       </Grid>
