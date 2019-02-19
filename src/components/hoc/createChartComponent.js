@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from 'react'
-import { destroyChart } from '../util/chart'
+import { destroyChart } from '../../util/chart'
 
 const createChartComponent = chart => memo(props => {
   const { data } = props

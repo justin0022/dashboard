@@ -2,7 +2,7 @@ import React from 'react'
 import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import createChartCard from '../higherOrderComponents/createChartCard'
+import createChartCard from '../components/hoc/createChartCard'
 import { lineChartURL } from '../data/gistURLs'
 import LineChart from '../components/LineChart'
 

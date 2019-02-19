@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createResize } from '../util/chart'
+import { createResize } from '../../util/chart'
 
 const withResponsiveness = ChartComponent => props => {
   const { aspectRatio = 0.75 } = props

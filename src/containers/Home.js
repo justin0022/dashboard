@@ -6,13 +6,13 @@ import Typography from '@material-ui/core/Typography'
 import LineChart from '../components/LineChart'
 import Link from '@material-ui/core/Link'
 import MapChart from '../components/MapChart'
-import createChartCard from '../higherOrderComponents/createChartCard'
+import createChartCard from '../components/hoc/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
 import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
-import createTableCard from '../higherOrderComponents/createTableCard'
+import createTableCard from '../components/hoc/createTableCard'
 
 const styles = theme => ({
   root: {

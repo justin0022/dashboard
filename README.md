@@ -23,5 +23,5 @@ These instructions will get you a copy of the project up and running on your loc
 1. To build for production, `npm run build` will output the production-ready, minified, tree-shaken bundle in `/dist`.
 
 ## Responsive
-Using the higher order component [withResponsiveness](https://github.com/justin0022/dashboard/blob/master/src/higherOrderComponents/withResponsiveness.js), the graphs made in D3 is responsive in an optimized way.
+Using the higher order component [withResponsiveness](https://github.com/justin0022/dashboard/blob/master/src/components/hoc/withResponsiveness.js), the graphs made in D3 is responsive in an optimized way.
 ![Responsive gif](./_assets/responsive.gif)
