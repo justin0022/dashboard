@@ -42,7 +42,6 @@ const Home = props => {
   const groupedBarChartData = useData(groupedBarChartURL)
   const barChartData = useData(barChartURL)
   const mapChartData = useData(mapURL)
-
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>

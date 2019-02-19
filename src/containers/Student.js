@@ -55,13 +55,14 @@ const Student = ({ classes }) => {
               ? <>
                 <Typography>Number of Students: <strong>{histogramData.length}</strong> </Typography>
                 <Typography>Average Grade: <strong>{average(histogramData)}%</strong> </Typography>
+                <Typography>My Grade: <strong>{average(histogramData) + 12}%</strong> </Typography>
                 </>
               : null}
             <Histogram
               data={histogramData}
               tip={createToolTip(d => `<p>${d.length}</p>`)}
               aspectRatio={0.3}
-              cAxisLabel={'Grade %'}
+              xAxisLabel={'Grade %'}
               yAxisLabel={'Number of Students'} />
           </Paper>
         </Grid>

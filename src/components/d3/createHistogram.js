@@ -57,7 +57,8 @@ const createHistogram = ({ data, width, height, el, tip, xAxisLabel, yAxisLabel 
 
   const yAxis = g => g
     .attr('transform', `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).tickSizeInner(-aWidth))
+    .call(g => g.select('.domain').remove())
     .call(g => g.select('.tick:last-of-type text').clone()
       .attr('x', 4)
       .attr('fill', '#000')
