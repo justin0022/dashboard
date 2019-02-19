@@ -2,7 +2,7 @@
 
 import * as d3 from 'd3'
 import { sankey as Sankey, sankeyLinkHorizontal } from 'd3-sankey'
-import { adjustViewport } from '../../util/chartUtil'
+import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
 const color = d3.scaleOrdinal(d3.schemeCategory10)

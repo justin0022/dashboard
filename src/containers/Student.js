@@ -12,6 +12,7 @@ import LineChart from '../components/LineChart'
 import Sankey from '../components/Sankey'
 import createToolTip from '../util/createToolTip'
 import emojiEndpoints from '../constants/emojiEndpoints'
+import { average } from '../util/math'
 import { barChartURL, groupedBarChartURL, lineChartURL, histogramURL, sankeyURL } from '../data/gistURLs'
 
 const styles = theme => ({
@@ -20,8 +21,10 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
     color: theme.palette.text.secondary
+  },
+  chartTitle: {
+    textAlign: 'center'
   }
 })
 
@@ -47,7 +50,13 @@ const Student = ({ classes }) => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom>Grade Distribution</Typography >
+            <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
+            {histogramData
+              ? <>
+                <Typography>Number of Students: {histogramData.length} </Typography>
+                <Typography>Average Grade: {average(histogramData)} </Typography>
+                </>
+              : null}
             <Histogram
               data={histogramData}
               tip={createToolTip(d => `<p>${d.length}</p>`)}
