@@ -53,8 +53,8 @@ const Student = ({ classes }) => {
             <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
             {histogramData
               ? <>
-                <Typography>Number of Students: {histogramData.length} </Typography>
-                <Typography>Average Grade: {average(histogramData)} </Typography>
+                <Typography>Number of Students: <strong>{histogramData.length}</strong> </Typography>
+                <Typography>Average Grade: <strong>{average(histogramData)}%</strong> </Typography>
                 </>
               : null}
             <Histogram
