@@ -50,7 +50,6 @@ const createHistogram = ({ data, width, height, el, tip, xAxisLabel, yAxisLabel 
       .attr('x', aWidth - margin.right)
       .attr('y', -4)
       .attr('fill', '#000')
-      .attr('font-weight', 'bold')
       .attr('text-anchor', 'end')
       .text(xAxisLabel)
     )
