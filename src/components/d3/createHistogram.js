@@ -57,14 +57,14 @@ const createHistogram = ({ data, width, height, el, tip, xAxisLabel, yAxisLabel 
 
   const yAxis = g => g
     .attr('transform', `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y).tickSizeInner(-aWidth))
+    .attr('class', 'axis')
+    .call(d3.axisLeft(y).tickSizeInner(-aWidth).ticks(6))
     .call(g => g.select('.domain').remove())
     .call(g => g.select('.tick:last-of-type text').clone()
       .attr('x', 4)
       .attr('fill', '#000')
       .attr('text-anchor', 'start')
-      .attr('font-weight', 'bold')
-      .text(yAxisLabel)
+      .text(yAxisLabel).attr('dy', -4)
     )
 
   svg.append('g')

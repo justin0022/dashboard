@@ -12,6 +12,9 @@ import LineChart from '../components/LineChart'
 import Sankey from '../components/Sankey'
 import createToolTip from '../util/createToolTip'
 import emojiEndpoints from '../constants/emojiEndpoints'
+import Table from '@material-ui/core/Table'
+import TableRow from '@material-ui/core/TableRow'
+import TableCell from '@material-ui/core/TableCell'
 import { average } from '../util/math'
 import { barChartURL, groupedBarChartURL, lineChartURL, histogramURL, sankeyURL } from '../data/gistURLs'
 
@@ -23,8 +26,27 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     color: theme.palette.text.secondary
   },
-  chartTitle: {
-    textAlign: 'center'
+  table: {
+    marginBottom: '0',
+    backgroundColor: 'transparent',
+    borderSpacing: '0',
+    borderCollapse: 'collapse',
+    width: '300px',
+    borderBottom: 'none'
+  },
+  tableHeadCell: {
+    color: 'inherit',
+    fontSize: '1em'
+  },
+  tableCell: {
+    lineHeight: '1.42857143',
+    padding: '12px 8px',
+    verticalAlign: 'middle'
+  },
+  tableResponsive: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto'
   }
 })
 
@@ -38,7 +60,6 @@ const specialEmojis = [
 
 const Student = ({ classes }) => {
   const tip = createToolTip(d => `<p>${d.data}</p>`)
-
   const groupedBarChartData = useData(groupedBarChartURL)
   const sankeyData = useData(sankeyURL)
   const barChartData = useData(barChartURL)
@@ -52,11 +73,32 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
             {histogramData
-              ? <>
-                <Typography>Number of Students: <strong>{histogramData.length}</strong> </Typography>
-                <Typography>Average Grade: <strong>{average(histogramData)}%</strong> </Typography>
-                <Typography>My Grade: <strong>{average(histogramData) + 12}%</strong> </Typography>
-                </>
+              ? <Table className={classes.table}>
+                <TableRow>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography>Number of Students</Typography>
+                  </TableCell>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography><strong>{histogramData.length}</strong></Typography>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography>Average Grade</Typography>
+                  </TableCell>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography><strong>{average(histogramData)}%</strong> </Typography>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography>My Grade</Typography>
+                  </TableCell>
+                  <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
+                    <Typography><strong>{average(histogramData) + 12}%</strong></Typography>
+                  </TableCell>
+                </TableRow>
+              </Table>
               : null}
             <Histogram
               data={histogramData}
@@ -66,7 +108,7 @@ const Student = ({ classes }) => {
               yAxisLabel={'Number of Students'} />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
             <Typography>Grouped Bar Chart</Typography>
             <GroupedBarChart data={groupedBarChartData} tip={tip} aspectRatio={0.5} />
@@ -97,7 +139,7 @@ const Student = ({ classes }) => {
             <Typography>Bar Chart</Typography>
             <BarChart data={barChartData} tip={tip} />
           </Paper>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   )
