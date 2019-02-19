@@ -49,7 +49,7 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom>Grade Distribution</Typography >
             <Histogram
-              dataURL={histogramURL}
+              data={histogramData}
               tip={createToolTip(d => `<p>${d.length}</p>`)}
               aspectRatio={0.3}
               cAxisLabel={'Grade %'}
