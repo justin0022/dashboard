@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Histogram from '../components/Histogram'
+import Spinner from '../components/Spinner'
 import createToolTip from '../util/createToolTip'
 import Table from '../components/Table'
 import { average } from '../util/math'
@@ -54,8 +55,7 @@ const Student = ({ classes }) => {
                   aspectRatio={0.3}
                   xAxisLabel={'Grade %'}
                   yAxisLabel={'Number of Students'} />
-              </> : <div className='spinner' />
-            }
+              </> : <Spinner />}
           </Paper>
         </Grid>
         <Grid item xs={12}>
