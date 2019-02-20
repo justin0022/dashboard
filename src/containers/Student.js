@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import Histogram from '../components/Histogram'
 import CourseProgress from '../components/CourseProgress'
 import createToolTip from '../util/createToolTip'
-import Table from '@material-ui/core/Table'
+import Table from '../components/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
@@ -24,26 +24,7 @@ const styles = theme => ({
     color: theme.palette.text.secondary
   },
   table: {
-    marginBottom: '0',
-    backgroundColor: 'transparent',
-    borderSpacing: '0',
-    borderCollapse: 'collapse',
-    width: '300px',
-    borderBottom: 'none'
-  },
-  tableHeadCell: {
-    color: 'inherit',
-    fontSize: '1em'
-  },
-  tableCell: {
-    lineHeight: '1.42857143',
-    padding: '12px 8px',
-    verticalAlign: 'middle'
-  },
-  tableResponsive: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto'
+    width: '300px'
   }
 })
 
@@ -56,35 +37,15 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
             {histogramData
-              ? <Table className={classes.table}>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography>Number of Students</Typography>
-                    </TableCell>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography><strong>{histogramData.length}</strong></Typography>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography>Average Grade</Typography>
-                    </TableCell>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography><strong>{average(histogramData)}%</strong> </Typography>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography>My Grade</Typography>
-                    </TableCell>
-                    <TableCell className={classes.tableCell + ' ' + classes.tableHeadCell}>
-                      <Typography><strong>{average(histogramData) + 12}%</strong></Typography>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-              : null}
+              ? <Grid item xs={2}>
+                <Table className={classes.table} tableData={[
+                  ['Number of Students', <strong>{histogramData.length}</strong>],
+                  ['Average Grade', `${average(histogramData)}%`],
+                  ['My Grade', `${average(histogramData) + 12}%`]
+                ]} />
+              </Grid>
+              : null
+            }
             <Histogram
               data={histogramData}
               tip={createToolTip(d => renderToString(
