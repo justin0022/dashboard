@@ -1,7 +1,7 @@
 import React, { useEffect, memo } from 'react'
 import emojiFeedback from '@justin0022/emoji-feedback'
 import { withStyles } from '@material-ui/core/styles'
-import withPopover from '../higherOrderComponents/withPopover'
+import withPopover from './hoc/withPopover'
 import compose from '../util/compose'
 
 const styles = ({

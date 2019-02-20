@@ -6,13 +6,15 @@ import Typography from '@material-ui/core/Typography'
 import LineChart from '../components/LineChart'
 import Link from '@material-ui/core/Link'
 import MapChart from '../components/MapChart'
-import createChartCard from '../higherOrderComponents/createChartCard'
+import createChartCard from '../components/hoc/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL, mapURL } from '../data/gistURLs'
-import createTableCard from '../higherOrderComponents/createTableCard'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL } from '../data/gistURLs'
+import createTableCard from '../components/hoc/createTableCard'
+import Sankey from '../components/Sankey'
+import Histogram from '../components/Histogram'
 
 const styles = theme => ({
   root: {
@@ -34,6 +36,8 @@ const BarChartCard = createChartCard(BarChart, EmojiFeedback)
 const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
 const TableCard = createTableCard(Table, EmojiFeedback)
 const MapChartCard = createChartCard(MapChart)
+const SankeyCard = createChartCard(Sankey)
+const HistogramCard = createChartCard(Histogram)
 
 const Home = props => {
   const { classes } = props
@@ -42,21 +46,22 @@ const Home = props => {
   const groupedBarChartData = useData(groupedBarChartURL)
   const barChartData = useData(barChartURL)
   const mapChartData = useData(mapURL)
+  const sankeyData = useData(sankeyURL)
+  const histogramData = useData(histogramURL)
 
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
         <LineChartCard data={lineChartData} feedbackId={'lineChartId'} classes={classes} >
-          <Grid item container>
-            <Grid item xs={12} container direction='column' spacing={8}>
-              <Grid item>
-                <Typography gutterBottom variant='h6'>Active Users</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
+          <Typography gutterBottom variant='h6'>Active Users</Typography>
         </LineChartCard>
-        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} />
+        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} >
+          <Typography gutterBottom variant='h6'>Bar Chart</Typography>
+        </BarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
+        <MapChartCard data={mapChartData} classes={classes} />
+        <SankeyCard data={sankeyData} classes={classes} />
+        <HistogramCard data={histogramData} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
           tableData={[
             ['1', 'Dakota Rice', '$36,738', 'Niger'],
@@ -87,7 +92,6 @@ const Home = props => {
             </Grid>
           </Grid>
         </TableCard>
-        <MapChartCard data={mapChartData} classes={classes} xs={12} />
       </Grid>
     </div >
   )

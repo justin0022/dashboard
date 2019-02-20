@@ -1,9 +1,11 @@
 import createSankeyDiagram from './d3/createSankeyDiagram'
-import withResponsiveness from '../higherOrderComponents/withResponsiveness'
-import createChartComponent from '../higherOrderComponents/createChartComponent'
+import withResponsiveness from './hoc/withResponsiveness'
+import createChartComponent from './hoc/createChartComponent'
 import compose from '../util/compose'
 
-export default compose(
+const Sankey = compose(
   withResponsiveness,
   createChartComponent
 )(createSankeyDiagram)
+
+export default Sankey

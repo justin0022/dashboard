@@ -1,9 +1,11 @@
-import createMapChart from './viz/createMapChart'
-import withResponsiveness from '../higherOrderComponents/withResponsiveness'
-import createChartComponent from '../higherOrderComponents/createChartComponent'
+import createMapChart from './d3/createMapChart'
+import withResponsiveness from '../components/hoc/withResponsiveness'
+import createChartComponent from '../components/hoc/createChartComponent'
 import compose from '../util/compose'
 
-export default compose(
+const MapChart = compose(
   withResponsiveness,
   createChartComponent
 )(createMapChart)
+
+export default MapChart

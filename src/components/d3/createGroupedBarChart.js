@@ -1,7 +1,7 @@
 import * as d3 from 'd3'
-import { adjustViewport } from '../../util/chartUtil'
+import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
-import { getValues, flatten } from '../../util/arrayUtil'
+import { getValues, flatten } from '../../util/array'
 
 const createGroupedBarChart = ({ data, width, height, tip, el }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)

@@ -1,9 +1,11 @@
 import createGroupedBarChart from './d3/createGroupedBarChart'
-import withResponsiveness from '../higherOrderComponents/withResponsiveness'
-import createChartComponent from '../higherOrderComponents/createChartComponent'
+import withResponsiveness from './hoc/withResponsiveness'
+import createChartComponent from './hoc/createChartComponent'
 import compose from '../util/compose'
 
-export default compose(
+const GroupedBarChart = compose(
   withResponsiveness,
   createChartComponent
 )(createGroupedBarChart)
+
+export default GroupedBarChart

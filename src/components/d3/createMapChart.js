@@ -1,5 +1,5 @@
 import * as d3 from 'd3'
-import { adjustViewport } from '../../util/chartUtil'
+import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 import * as topojson from 'topojson'
 

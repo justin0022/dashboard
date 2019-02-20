@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
-const createBarChart = ({ data, width, height, el, tip }) => {
+const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleBand()
@@ -43,4 +43,4 @@ const createBarChart = ({ data, width, height, el, tip }) => {
   }
 }
 
-export default createBarChart
+export default createHorizontalBarChart
