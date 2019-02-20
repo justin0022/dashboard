@@ -37,11 +37,11 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
             {histogramData
-              ? <Grid item xs={2}>
+              ? <Grid item xs={12} sm={4} lg={2}>
                 <Table className={classes.table} tableData={[
                   ['Number of Students', <strong>{histogramData.length}</strong>],
-                  ['Average Grade', `${average(histogramData)}%`],
-                  ['My Grade', `${average(histogramData) + 12}%`]
+                  ['Average Grade', <strong>{average(histogramData)}%</strong>],
+                  ['My Grade', <strong>{average(histogramData) + 12}%</strong>]
                 ]} />
               </Grid>
               : null
