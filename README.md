@@ -3,6 +3,7 @@
 # Dashboard
 **[Live Demo](https://justin0022.github.io/dashboard/)**
 ![Home screenshot](./_assets/dashboard-home.png)
+![Student screenshot](./_assets/student.png)
 A React single page data visualiation app. It uses [D3](https://d3js.org/), [Material UI](https://material-ui.com/), [React Router](https://github.com/ReactTraining/react-router), and [Emoji Feedback](https://github.com/ubc/emoji-feedback).
 
 ## Getting Started
