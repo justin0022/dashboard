@@ -22,7 +22,9 @@ const createTableCard = (TableComponent, EmojiFeedback) => props => {
           <TableComponent tableHead={tableHead}
             tableData={tableData} />
         </Grid>
-        {EmojiFeedback !== undefined ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} /> : null}
+        {EmojiFeedback !== undefined
+          ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} />
+          : null}
       </Paper>
     </Grid>
   )
