@@ -50,7 +50,11 @@ const Student = ({ classes }) => {
               data={histogramData}
               tip={createToolTip(d => renderToString(
                 <Paper className={classes.paper}>
-                  <Typography>Number of Students: {d.length}</Typography>
+                  <Table className={classes.table} tableData={[
+                    ['Number of Students', <strong>{histogramData.length}</strong>],
+                    ['Average Grade', <strong>{average(histogramData)}%</strong>],
+                    ['My Grade', <strong>{average(histogramData) + 12}%</strong>]
+                  ]} />
                 </Paper>
               ))}
               aspectRatio={0.3}
