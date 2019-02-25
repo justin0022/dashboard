@@ -15,9 +15,9 @@ const withResponsiveness = ChartComponent => props => {
   }
 
   useEffect(() => {
-    const optimizedResize = createResize()
-    optimizedResize.add(() => setContainer(el))
-    return optimizedResize.remove
+    const debouncedResize = createResize()
+    debouncedResize.add(() => setContainer(el))
+    return debouncedResize.remove
   })
 
   const notNull = (width !== null)

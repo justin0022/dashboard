@@ -14,6 +14,8 @@ const createLine = ({ svg, x, y, data }) => {
     .attr('stroke-linejoin', 'round')
     .attr('stroke-linecap', 'round')
     .attr('d', line)
+
+  return svg
 }
 
 export default createLine

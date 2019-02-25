@@ -4,9 +4,8 @@ import withResponsiveness from './hoc/withResponsiveness'
 import createChartComponent from './hoc/createChartComponent'
 import compose from '../util/compose'
 
-const histogramWithGradeLine = compose(
-  createHistogram,
-  createLine
+const GradeDistribution = compose(
+
 )
 
 export default compose(

@@ -9,7 +9,7 @@ const createSVG = ({ el, width, height }) => {
     .attr('width', aWidth)
     .attr('height', aHeight)
 
-  return svg
+  return [svg, aWidth, aHeight]
 }
 
 export default createSVG
