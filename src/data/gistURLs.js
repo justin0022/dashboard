@@ -4,3 +4,4 @@ export const histogramURL = 'https://gist.githubusercontent.com/justin0022/a9ead
 export const lineChartURL = 'https://gist.githubusercontent.com/justin0022/10ccef7ce6bf43d5fb5024fad43277bd/raw/31d402104f5820b5a07733942d3eb89b6f4eb424/lineChartData.json'
 export const sankeyURL = 'https://gist.githubusercontent.com/justin0022/3488c5c59adfd986c06710cbf5f71ade/raw/ed9c1477a10cb460cd3706f4b2516f78285d3194/sankeyData.json'
 export const mapURL = 'https://unpkg.com/us-atlas@1/us/10m.json'
+export const heatmapURL = 'https://gist.githubusercontent.com/soohyunkim/609376669740065a5e44feb0f1ce8794/raw/d2ee1e12be7b4f125932402118af4813a4cdc56c/randomUSPopulationData.json'

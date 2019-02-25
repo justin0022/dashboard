@@ -10,7 +10,13 @@ const createMapChart = ({ data, width, height, el }) => {
     .attr('width', aWidth)
     .attr('height', aHeight)
 
-  const featureCollection = topojson.feature(data, data.objects.counties)
+  const featureCollection = topojson.feature(data.mapChartData, data.mapChartData.objects.counties)
+  const heatmapStates = data.heatmapData.states
+  const heatmapPopulation = {}
+  for (let i = 0; i < heatmapStates.length; i++) {
+    heatmapPopulation[heatmapStates[i].name] = heatmapStates[i].population
+  }
+  console.log(heatmapPopulation)
 
   const projection = d3
     .geoIdentity()
@@ -26,7 +32,7 @@ const createMapChart = ({ data, width, height, el }) => {
     .attr('d', path)
 
   svg.append('path')
-    .datum(topojson.mesh(data, data.objects.states, (a, b) => a !== b))
+    .datum(topojson.mesh(data.mapChartData, data.mapChartData.objects.states, (a, b) => a !== b))
     .attr('fill', 'none')
     .attr('stroke', 'white')
     .attr('stroke-linejoin', 'round')
