@@ -11,7 +11,6 @@ const createMapChart = ({ data, width, height, el }) => {
 
   const mapData = data.mapChartData
   const heatmapStates = data.heatmapData.states
-  const heatmapPopulation = {}
   for (let i = 0; i < mapData.features.length; i++) {
     mapData.features[i].properties.population = heatmapStates[i].population
   }
@@ -36,7 +35,6 @@ const createMapChart = ({ data, width, height, el }) => {
     .enter().append('path')
     .attr('fill', d => color(d.properties.population))
     .attr('d', path)
-    .data(heatmapPopulation)
 }
 
 export default createMapChart
