@@ -11,7 +11,7 @@ import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL } from '../data/gistURLs'
 import createTableCard from '../components/hoc/createTableCard'
 import Sankey from '../components/Sankey'
 import Histogram from '../components/Histogram'
@@ -46,8 +46,14 @@ const Home = props => {
   const groupedBarChartData = useData(groupedBarChartURL)
   const barChartData = useData(barChartURL)
   const mapChartData = useData(mapURL)
+  const heatmapData = useData(heatmapURL)
   const sankeyData = useData(sankeyURL)
   const histogramData = useData(histogramURL)
+
+  const mapData = {
+    heatmapData,
+    mapChartData
+  }
 
   return (
     <div className={classes.root}>
@@ -59,7 +65,7 @@ const Home = props => {
           <Typography gutterBottom variant='h6'>Bar Chart</Typography>
         </BarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
-        <MapChartCard data={mapChartData} classes={classes} />
+        {mapChartData ? heatmapData ? <MapChartCard data={mapData} classes={classes} /> : null : null}
         <SankeyCard data={sankeyData} classes={classes} />
         <HistogramCard data={histogramData} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
