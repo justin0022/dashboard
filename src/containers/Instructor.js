@@ -18,13 +18,17 @@ const styles = theme => ({
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120
+    minWidth: 120,
+    float: 'right'
+  },
+  alignCenter: {
+    textAlign: 'center'
   }
 })
 
 const Instructor = props => {
   const { classes } = props
-  const [course, setCourse] = useState('')
+  const [course, setCourse] = useState('PHIL 101')
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -35,12 +39,9 @@ const Instructor = props => {
               value={course}
               onChange={event => setCourse(event.target.value)}
             >
-              <MenuItem value=''>
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value={'PHIL 101'}>PHIL 101</MenuItem>
+              <MenuItem value={'PHIL 102'}>PHIL 102</MenuItem>
+              <MenuItem value={'PHIL 201'}>PHIL 201</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -48,28 +49,28 @@ const Instructor = props => {
           <Paper className={classes.paper}>
             <Grid container>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
+                <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>77.4%</Typography>
+                <Typography className={classes.alignCenter}>Average Grade</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
+                <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
+                <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
+                <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5'>30</Typography>
-                <Typography>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
+                <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
             </Grid>
           </Paper>
