@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
-const createMapChart = ({ data, width, height, el }) => {
+const createMapChart = ({ data, width, height, el, tip }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const svg = d3.select(el).append('svg')
@@ -29,12 +29,18 @@ const createMapChart = ({ data, width, height, el }) => {
     .domain(domain)
     .interpolate(() => d3.interpolateMagma)
 
-  svg.append('g')
-    .selectAll('path')
-    .data(mapData.features)
-    .enter().append('path')
+  const map = svg.selectAll('path')
+    .data(mapData.features).enter()
+    .append('path')
     .attr('fill', d => color(d.properties.population))
     .attr('d', path)
+
+  if (tip) {
+    svg.call(tip)
+    map
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+  }
 }
 
 export default createMapChart
