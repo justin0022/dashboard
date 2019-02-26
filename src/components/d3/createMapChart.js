@@ -1,7 +1,6 @@
 import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
-import * as topojson from 'topojson'
 
 const createMapChart = ({ data, width, height, el }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
@@ -10,26 +9,34 @@ const createMapChart = ({ data, width, height, el }) => {
     .attr('width', aWidth)
     .attr('height', aHeight)
 
-  const featureCollection = data.mapChartData
+  const mapData = data.mapChartData
   const heatmapStates = data.heatmapData.states
   const heatmapPopulation = {}
-  for (let i = 0; i < heatmapStates.length; i++) {
-    heatmapPopulation[heatmapStates[i].name] = heatmapStates[i].population
+  for (let i = 0; i < mapData.features.length; i++) {
+    mapData.features[i].properties.population = heatmapStates[i].population
   }
 
   const projection = d3
     .geoAlbersUsa()
-    .fitExtent([[0, 0], [aWidth, aHeight]], featureCollection)
+    .fitExtent([[0, 0], [aWidth, aHeight]], mapData)
 
   const path = d3.geoPath()
     .projection(projection)
 
+  const domain = [0.125, Math.max(...mapData.features.map(states => states.properties.population))]
+
+  const color = d3.scaleLog()
+    .base(2)
+    .domain(domain)
+    .interpolate(() => d3.interpolateMagma)
+
   svg.append('g')
     .selectAll('path')
-    .data(featureCollection.features)
+    .data(mapData.features)
     .enter().append('path')
+    .attr('fill', d => color(d.properties.population))
     .attr('d', path)
-
+    .data(heatmapPopulation)
 }
 
 export default createMapChart
