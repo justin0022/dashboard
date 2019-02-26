@@ -1,10 +1,12 @@
-import React from 'react'
-import useData from '../hooks/useData'
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import createChartCard from '../components/hoc/createChartCard'
-import LineChart from '../components/LineChart'
-import { lineChartURL } from '../data/gistURLs'
+import Paper from '@material-ui/core/Paper'
+import { Typography } from '@material-ui/core'
+import Select from '@material-ui/core/Select'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
 
 const styles = theme => ({
   root: {
@@ -13,21 +15,67 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     color: theme.palette.text.secondary
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120
   }
 })
 
-const LineChartCard = createChartCard(LineChart)
-
 const Instructor = props => {
   const { classes } = props
-  const lineChartData = useData(lineChartURL)
-
+  const [course, setCourse] = useState('')
   return (
     <div className={classes.root}>
-      <Grid container spacing={16}>
-        <LineChartCard data={lineChartData} classes={classes} />
-      </Grid>
-    </div>
+      <Grid container spacing={24}>
+        <Grid item xs={12}>
+          <FormControl className={classes.formControl}>
+            <InputLabel>Courses</InputLabel>
+            <Select
+              value={course}
+              onChange={event => setCourse(event.target.value)}
+            >
+              <MenuItem value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Grid container>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Typography variant='h5'>30</Typography>
+                <Typography>Students</Typography>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
+      </Grid >
+    </div >
   )
 }
 
