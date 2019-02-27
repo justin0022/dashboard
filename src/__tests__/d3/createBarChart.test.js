@@ -41,7 +41,24 @@ describe('createBarChart', () => {
     const svg = div.children[0]
     expect(svg).toBeDefined()
     expect(svg.tagName).toEqual('svg')
+    expect(Number(svg.getAttribute('width'))).toBeGreaterThan(0)
+    expect(Number(svg.getAttribute('height'))).toBeGreaterThan(0)
+
     const tagNames = Array.from(svg.children).map(x => x.tagName)
     expect(tagNames).toEqual(['rect', 'rect', 'rect', 'rect', 'rect', 'rect', 'rect', 'g', 'g'])
+
+    const rects = Array.from(svg.children).filter(x => x.tagName === 'rect')
+    const [x, y, width, height] = rects.reduce((acc, curRect) => {
+      acc[0].push(Number(curRect.getAttribute('x')))
+      acc[1].push(Number(curRect.getAttribute('y')))
+      acc[2].push(Number(curRect.getAttribute('width')))
+      acc[3].push(Number(curRect.getAttribute('height')))
+      return acc
+    }, [[], [], [], []])
+
+    x.forEach(x => expect(x).toBeGreaterThan(0))
+    y.forEach(x => expect(x).toBeGreaterThan(0))
+    width.forEach(x => expect(x).toBeGreaterThan(0))
+    height.forEach(x => expect(x).toBeGreaterThan(0))
   })
 })
