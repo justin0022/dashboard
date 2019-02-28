@@ -46,7 +46,7 @@ function createScatterplot ({ data, width, height, el, tip, xAxisLabel, yAxisLab
     .call(d3.axisLeft(y).tickSizeInner(-aWidth).ticks(6))
     .call(g => g.select('.domain').remove())
     .call(g => g.select('.tick:last-of-type text').clone()
-      .attr('x', 4)
+      .attr('x', 5)
       .attr('fill', '#000')
       .attr('text-anchor', 'start')
       .text(yAxisLabel).attr('dy', -4)

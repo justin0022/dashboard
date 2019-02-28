@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
+import { renderToString } from 'react-dom/server'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { Typography } from '@material-ui/core'
@@ -9,7 +10,10 @@ import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import Scatterplot from '../components/Scatterplot'
+import Table from '../components/Table'
+import createToolTip from '../util/createToolTip'
 import Spinner from '../components/Spinner'
+import { average } from '../util/math'
 import { scatterplotURL } from '../data/gistURLs'
 
 const styles = theme => ({
@@ -86,8 +90,18 @@ const Instructor = props => {
             {scatterplotData ? <Scatterplot
               data={scatterplotData}
               aspectRatio={0.3}
-              xAxisLabel={'Grade %'}
-              yAxisLabel={'Grade %'} />
+              xAxisLabel={'Midterm 1 %'}
+              yAxisLabel={'Final Exam %'}
+              tip={createToolTip(d => renderToString(
+                <Paper className={classes.paper}>
+                  <Table className={classes.table} tableData={[
+                    ['Student Name', <strong>Justin Lee</strong>],
+                    ['Midterm 1 Grade', <strong>{d.x}%</strong>],
+                    ['Final Exam', <strong>{d.y}%</strong>],
+                    ['Overall Grade', <strong>{(d.y + d.x) / 2}%</strong>]
+                  ]} />
+                </Paper>
+              ))} />
               : <Spinner />}
           </Paper>
         </Grid>
