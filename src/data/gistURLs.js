@@ -5,3 +5,4 @@ export const lineChartURL = 'https://gist.githubusercontent.com/justin0022/10cce
 export const sankeyURL = 'https://gist.githubusercontent.com/justin0022/3488c5c59adfd986c06710cbf5f71ade/raw/ed9c1477a10cb460cd3706f4b2516f78285d3194/sankeyData.json'
 export const mapURL = 'https://gist.githubusercontent.com/soohyunkim/abf2b7f69453dc517fc8b945343c6c26/raw/4deece8f1fdc32e3420626f278f25d4a73574f8a/usMap.json'
 export const heatmapURL = 'https://gist.githubusercontent.com/soohyunkim/609376669740065a5e44feb0f1ce8794/raw/d2ee1e12be7b4f125932402118af4813a4cdc56c/randomUSPopulationData.json'
+export const scatterplotURL = 'https://gist.githubusercontent.com/justin0022/584d6205a28436c93fe68cfa57d38873/raw/7a0131137cff5f7351c86631c74381b2f997da6d/scatterplotData.json'
