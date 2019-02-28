@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react'
 import get from '../service/api'
 
+const cache = new Map()
+
 const useData = dataURL => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    get(dataURL).then(data => setData(data))
+    if (cache.has(dataURL)) {
+      setData(cache.get(dataURL))
+    } else {
+      get(dataURL).then(data => {
+        cache.set(dataURL, data)
+        setData(data)
+      })
+    }
   }, [dataURL])
 
   return data
