@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import { withRouter } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
@@ -25,6 +26,9 @@ const styles = theme => ({
     marginBottom: '10px',
     marginLeft: 'auto',
     marginRight: 'auto'
+  },
+  routerLink: {
+    textDecoration: 'none'
   }
 })
 
@@ -57,7 +61,7 @@ const AvatarModal = props => {
               <ListItemIcon>
                 <HelpIcon />
               </ListItemIcon>
-              <ListItemText inset primary='Help' />
+              <ListItemText inset primary='Help' onClick={() => props.history.push('/Help')} />
             </ListItem>
             <Divider />
             <ListItem button>
@@ -80,4 +84,4 @@ const AvatarModal = props => {
   )
 }
 
-export default withStyles(styles)(AvatarModal)
+export default withRouter(withStyles(styles)(AvatarModal))

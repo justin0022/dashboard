@@ -15,7 +15,7 @@ const styles = {
   fullList: {
     width: 'auto'
   },
-  sideDrawerLinks: {
+  routerLink: {
     textDecoration: 'none'
   }
 }
@@ -33,7 +33,7 @@ const sideDrawer = props => {
     <div className={classes.list}>
       <List>
         {routes.map((props, key) => (
-          <Link to={props.path} className={classes.sideDrawerLinks} key={key}>
+          <Link to={props.path} className={classes.routerLink} key={key}>
             <ListItem
               button
               key={props.sidebarName}
