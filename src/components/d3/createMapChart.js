@@ -1,7 +1,6 @@
 import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
-import * as topojson from 'topojson'
 
 const createMapChart = ({ data, width, height, el }) => {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
@@ -10,26 +9,31 @@ const createMapChart = ({ data, width, height, el }) => {
     .attr('width', aWidth)
     .attr('height', aHeight)
 
-  const featureCollection = topojson.feature(data, data.objects.counties)
+  const mapData = data.mapChartData
+  const heatmapStates = data.heatmapData.states
+  for (let i = 0; i < mapData.features.length; i++) {
+    mapData.features[i].properties.population = heatmapStates[i].population
+  }
 
   const projection = d3
-    .geoIdentity()
-    .fitExtent([[0, 0], [aWidth, aHeight]], featureCollection)
+    .geoAlbersUsa()
+    .fitExtent([[0, 0], [aWidth, aHeight]], mapData)
 
   const path = d3.geoPath()
     .projection(projection)
 
+  const domain = [0.125, Math.max(...mapData.features.map(states => states.properties.population))]
+
+  const color = d3.scaleLog()
+    .base(2)
+    .domain(domain)
+    .interpolate(() => d3.interpolateMagma)
+
   svg.append('g')
     .selectAll('path')
-    .data(featureCollection.features)
+    .data(mapData.features)
     .enter().append('path')
-    .attr('d', path)
-
-  svg.append('path')
-    .datum(topojson.mesh(data, data.objects.states, (a, b) => a !== b))
-    .attr('fill', 'none')
-    .attr('stroke', 'white')
-    .attr('stroke-linejoin', 'round')
+    .attr('fill', d => color(d.properties.population))
     .attr('d', path)
 }
 

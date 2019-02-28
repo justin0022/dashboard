@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Histogram from '../components/Histogram'
+import Spinner from '../components/Spinner'
 import createToolTip from '../util/createToolTip'
 import Table from '../components/Table'
 import { average } from '../util/math'
@@ -33,29 +34,28 @@ const Student = ({ classes }) => {
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom >Grade Distribution</Typography >
             {histogramData
-              ? <Grid item xs={12} sm={4} lg={2}>
-                <Table className={classes.table} tableData={[
-                  ['Number of Students', <strong>{histogramData.length}</strong>],
-                  ['Average Grade', <strong>{average(histogramData)}%</strong>],
-                  ['My Grade', <strong>{average(histogramData) + 12}%</strong>]
-                ]} />
-              </Grid>
-              : null
-            }
-            <Histogram
-              data={histogramData}
-              tip={createToolTip(d => renderToString(
-                <Paper className={classes.paper}>
+              ? <>
+                <Grid item xs={12} sm={4} lg={2}>
                   <Table className={classes.table} tableData={[
                     ['Number of Students', <strong>{histogramData.length}</strong>],
                     ['Average Grade', <strong>{average(histogramData)}%</strong>],
                     ['My Grade', <strong>{average(histogramData) + 12}%</strong>]
                   ]} />
-                </Paper>
-              ))}
-              aspectRatio={0.3}
-              xAxisLabel={'Grade %'}
-              yAxisLabel={'Number of Students'} />
+                </Grid>
+                <Histogram
+                  data={histogramData}
+                  tip={createToolTip(d => renderToString(
+                    <Paper className={classes.paper}>
+                      <Table className={classes.table} tableData={[
+                        ['Number of Students', <strong>{d.length}</strong>],
+                        ['Average Grade', <strong>{average(d)}%</strong>]
+                      ]} />
+                    </Paper>
+                  ))}
+                  aspectRatio={0.3}
+                  xAxisLabel={'Grade %'}
+                  yAxisLabel={'Number of Students'} />
+              </> : <Spinner />}
           </Paper>
         </Grid>
         <Grid item xs={12}>
