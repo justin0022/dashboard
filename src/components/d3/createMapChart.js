@@ -11,13 +11,14 @@ const createMapChart = ({ data, width, height, el, tip }) => {
 
   const mapData = data.mapChartData
   const heatmapStates = data.heatmapData.states
-  for (let i = 0; i < mapData.features.length; i++) {
-    mapData.features[i].properties.population = heatmapStates[i].population
-  }
+  // for (let i = 0; i < mapData.features.length; i++) {
+  //   mapData.features[i].properties.population = heatmapStates[i].population
+  // }
 
   const projection = d3
-    .geoAlbersUsa()
-    .fitExtent([[0, 0], [aWidth, aHeight]], mapData)
+    .geoMercator()
+    // .translate(aWidth / 2, aHeight / 2)
+    .fitExtent([[0, 0], [aWidth, aHeight+100]], mapData)
 
   const path = d3.geoPath()
     .projection(projection)
@@ -32,7 +33,7 @@ const createMapChart = ({ data, width, height, el, tip }) => {
   const map = svg.selectAll('path')
     .data(mapData.features).enter()
     .append('path')
-    .attr('fill', d => color(d.properties.population))
+    // .attr('fill', d => color(d.properties.population))
     .attr('d', path)
 
   if (tip) {
