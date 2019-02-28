@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
@@ -7,6 +8,9 @@ import Select from '@material-ui/core/Select'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
+import Scatterplot from '../components/Scatterplot'
+import Spinner from '../components/Spinner'
+import { scatterplotURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
@@ -29,6 +33,7 @@ const styles = theme => ({
 const Instructor = props => {
   const { classes } = props
   const [course, setCourse] = useState('PHIL 101')
+  const scatterplotData = useData(scatterplotURL)
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -73,6 +78,17 @@ const Instructor = props => {
                 <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
             </Grid>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Typography variant='h5' gutterBottom >Grade Correlation</Typography >
+            {scatterplotData ? <Scatterplot
+              data={scatterplotData}
+              aspectRatio={0.3}
+              xAxisLabel={'Grade %'}
+              yAxisLabel={'Grade %'} />
+              : <Spinner />}
           </Paper>
         </Grid>
       </Grid >
