@@ -100,7 +100,7 @@ const Instructor = props => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom className={classes.alignCenter}>Where are your students from?</Typography >
+            <Typography variant='h5' gutterBottom className={classes.alignCenter}>Where are my students from?</Typography >
             {mapChartData ? heatmapData
               ? <Grid container>
                 <Grid item xs={12}>
