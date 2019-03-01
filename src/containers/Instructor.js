@@ -101,7 +101,7 @@ const Instructor = props => {
             <Typography variant='h5' gutterBottom className={classes.alignCenter}>Where are your students from?</Typography >
             {mapChartData ? heatmapData
               ? <Grid container>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                   <MapChart
                     data={mapData}
                     aspectRatio={0.5}
@@ -114,7 +114,7 @@ const Instructor = props => {
                       </Paper>
                     ))} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                   <HorizontalBarChart
                     data={horizontalBarChartData}
                     aspectRatio={0.5}
