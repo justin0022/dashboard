@@ -13,8 +13,8 @@ import Scatterplot from '../components/Scatterplot'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import Spinner from '../components/Spinner'
-import { average } from '../util/math'
-import { scatterplotURL } from '../data/gistURLs'
+import MapChart from '../components/MapChart'
+import { scatterplotURL, mapURL, heatmapURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
@@ -38,6 +38,14 @@ const Instructor = props => {
   const { classes } = props
   const [course, setCourse] = useState('PHIL 101')
   const scatterplotData = useData(scatterplotURL)
+  const mapChartData = useData(mapURL)
+  const heatmapData = useData(heatmapURL)
+
+  const mapData = {
+    heatmapData,
+    mapChartData
+  }
+
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
@@ -82,6 +90,19 @@ const Instructor = props => {
                 <Typography className={classes.alignCenter}>Students</Typography>
               </Grid>
             </Grid>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Typography variant='h5' gutterBottom >Where are your students from?</Typography >
+            {mapChartData ? heatmapData ? <MapChart
+              data={mapData}
+              aspectRatio={0.3}
+              tip={createToolTip(d => renderToString(
+                <Paper className={classes.paper}>
+                  {d.properties.name}
+                </Paper>
+              ))} /> : <Spinner /> : <Spinner />}
           </Paper>
         </Grid>
         <Grid item xs={12}>
