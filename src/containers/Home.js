@@ -66,7 +66,7 @@ const Home = props => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        {/* <ScatterplotCard
+        <ScatterplotCard
           data={scatterplotData}
           classes={classes}
           xAxisLabel={'Grade %'}
@@ -75,14 +75,14 @@ const Home = props => {
         </ScatterplotCard>
         <LineChartCard data={lineChartData} feedbackId={'lineChartId'} classes={classes} >
           <Typography gutterBottom variant='h6'>Active Users</Typography>
-        </LineChartCard> */}
+        </LineChartCard>
         <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} xs={12}>
           <Typography gutterBottom variant='h6'>Vertical Bar Chart</Typography>
         </BarChartCard>
         <HorizontalBarChartCard data={barChartData} classes={classes} xs={12}>
           <Typography gutterBottom variant='h6'>Horizontal Bar Chart</Typography>
         </HorizontalBarChartCard>
-        {/* <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
+        <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
         {mapChartData ? heatmapData ? <MapChartCard
           data={mapData} classes={classes}
           tip={createToolTip(d => renderToString(
@@ -121,7 +121,7 @@ const Home = props => {
               </Grid>
             </Grid>
           </Grid>
-        </TableCard> */}
+        </TableCard>
       </Grid>
     </div >
   )

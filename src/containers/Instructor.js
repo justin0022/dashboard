@@ -14,6 +14,7 @@ import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import Spinner from '../components/Spinner'
 import MapChart from '../components/MapChart'
+import HorizontalBarChart from '../components/HorizontalBarChart'
 import { scatterplotURL, mapURL, heatmapURL } from '../data/gistURLs'
 
 const styles = theme => ({
@@ -40,6 +41,9 @@ const Instructor = props => {
   const scatterplotData = useData(scatterplotURL)
   const mapChartData = useData(mapURL)
   const heatmapData = useData(heatmapURL)
+  const horizontalBarChartData = heatmapData ? heatmapData.countries
+    .map(({ name, population }) => ({ label: name, data: population }))
+    .sort((a, b) => a.data - b.data) : null
 
   const mapData = {
     heatmapData,
@@ -94,20 +98,42 @@ const Instructor = props => {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom >Where are your students from?</Typography >
-            {mapChartData ? heatmapData ? <MapChart
-              data={mapData}
-              aspectRatio={0.3}
-              tip={createToolTip(d => renderToString(
-                <Paper className={classes.paper}>
-                  {d.properties.name}
-                </Paper>
-              ))} /> : <Spinner /> : <Spinner />}
+            <Typography variant='h5' gutterBottom className={classes.alignCenter}>Where are your students from?</Typography >
+            {mapChartData ? heatmapData
+              ? <Grid container>
+                <Grid item xs={6}>
+                  <MapChart
+                    data={mapData}
+                    aspectRatio={0.5}
+                    tip={createToolTip(d => renderToString(
+                      <Paper className={classes.paper}>
+                        <Table className={classes.table} tableData={[
+                          ['Country', <strong>{d.properties.name}</strong>],
+                          ['Number of Students', <strong>{d.properties.population}</strong>]
+                        ]} />
+                      </Paper>
+                    ))} />
+                </Grid>
+                <Grid item xs={6}>
+                  <HorizontalBarChart
+                    data={horizontalBarChartData}
+                    aspectRatio={0.5}
+                    tip={createToolTip(d => renderToString(
+                      <Paper className={classes.paper}>
+                        <Table className={classes.table} tableData={[
+                          ['Country', <strong>{d.label}</strong>],
+                          ['Number of Students', <strong>{d.data}</strong>]
+                        ]} />
+                      </Paper>
+                    ))} />
+                </Grid>
+              </Grid>
+              : <Spinner /> : <Spinner />}
           </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom >Grade Correlation</Typography >
+            <Typography variant='h5' gutterBottom className={classes.alignCenter}>Grade correlation of assignments</Typography >
             {scatterplotData ? <Scatterplot
               data={scatterplotData}
               aspectRatio={0.3}

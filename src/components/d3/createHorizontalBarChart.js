@@ -3,6 +3,7 @@ import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
 const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
+  margin.left = 120
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()
