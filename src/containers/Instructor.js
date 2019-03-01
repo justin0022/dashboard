@@ -38,6 +38,8 @@ const styles = theme => ({
 const Instructor = props => {
   const { classes } = props
   const [course, setCourse] = useState('PHIL 101')
+  const [xAxisAssignment, setXAxisAssignment] = useState('Assignment 1')
+  const [yAxisAssignment, setYAxisAssignment] = useState('Assignment 1')
   const scatterplotData = useData(scatterplotURL)
   const mapChartData = useData(mapURL)
   const heatmapData = useData(heatmapURL)
@@ -78,30 +80,30 @@ const Instructor = props => {
                 <Typography className={classes.alignCenter}>Average Grade</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
-                <Typography className={classes.alignCenter}>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>15</Typography>
+                <Typography className={classes.alignCenter}>Nationalities</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
-                <Typography className={classes.alignCenter}>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>5</Typography>
+                <Typography className={classes.alignCenter}>Faculties</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
-                <Typography className={classes.alignCenter}>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>14/16</Typography>
+                <Typography className={classes.alignCenter}>Male/Female Ratio</Typography>
               </Grid>
               <Grid item xs={2}>
-                <Typography variant='h5' className={classes.alignCenter}>30</Typography>
-                <Typography className={classes.alignCenter}>Students</Typography>
+                <Typography variant='h5' className={classes.alignCenter}>70</Typography>
+                <Typography className={classes.alignCenter}>Days Remaining in Term</Typography>
               </Grid>
             </Grid>
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.alignCenter}>Where are your students from?</Typography >
             {mapChartData ? heatmapData
               ? <Grid container>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                   <MapChart
                     data={mapData}
                     aspectRatio={0.5}
@@ -114,7 +116,7 @@ const Instructor = props => {
                       </Paper>
                     ))} />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12}>
                   <HorizontalBarChart
                     data={horizontalBarChartData}
                     aspectRatio={0.5}
@@ -131,25 +133,54 @@ const Instructor = props => {
               : <Spinner /> : <Spinner />}
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.alignCenter}>Grade correlation of assignments</Typography >
-            {scatterplotData ? <Scatterplot
-              data={scatterplotData}
-              aspectRatio={0.3}
-              xAxisLabel={'Midterm 1 %'}
-              yAxisLabel={'Final Exam %'}
-              tip={createToolTip(d => renderToString(
-                <Paper className={classes.paper}>
-                  <Table className={classes.table} tableData={[
-                    ['Student Name', <strong>Justin Lee</strong>],
-                    ['Midterm 1 Grade', <strong>{d.x}%</strong>],
-                    ['Final Exam', <strong>{d.y}%</strong>],
-                    ['Overall Grade', <strong>{(d.y + d.x) / 2}%</strong>]
-                  ]} />
-                </Paper>
-              ))} />
-              : <Spinner />}
+            <FormControl className={classes.formControl}>
+              <InputLabel>Select Assignment</InputLabel>
+              <Select
+                value={yAxisAssignment}
+                onChange={event => setYAxisAssignment(event.target.value)}
+              >
+                <MenuItem value={'Assignment 1'}>Assignment 1</MenuItem>
+                <MenuItem value={'Assignment 2'}>Assignment 2</MenuItem>
+                <MenuItem value={'Midterm 1'}>Midterm 1</MenuItem>
+                <MenuItem value={'Midterm 2'}>Midterm 2</MenuItem>
+                <MenuItem value={'Final Exam'}>Final Exam</MenuItem>
+                <MenuItem value={'Final Grade in Course'}>Final Grade in Course</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel>Select Assignment</InputLabel>
+              <Select
+                value={xAxisAssignment}
+                onChange={event => setXAxisAssignment(event.target.value)}
+              >
+                <MenuItem value={'Assignment 1'}>Assignment 1</MenuItem>
+                <MenuItem value={'Assignment 2'}>Assignment 2</MenuItem>
+                <MenuItem value={'Midterm 1'}>Midterm 1</MenuItem>
+                <MenuItem value={'Midterm 2'}>Midterm 2</MenuItem>
+                <MenuItem value={'Final Exam'}>Final Exam</MenuItem>
+                <MenuItem value={'Final Grade in Course'}>Final Grade in Course</MenuItem>
+              </Select>
+            </FormControl>
+            {scatterplotData ? <>
+              <Scatterplot
+                data={scatterplotData}
+                aspectRatio={0.5}
+                xAxisLabel={xAxisAssignment}
+                yAxisLabel={yAxisAssignment}
+                tip={createToolTip(d => renderToString(
+                  <Paper className={classes.paper}>
+                    <Table className={classes.table} tableData={[
+                      ['Student Name', <strong>Justin Lee</strong>],
+                      ['Midterm 1 Grade', <strong>{d.x}%</strong>],
+                      ['Final Exam', <strong>{d.y}%</strong>],
+                      ['Overall Grade', <strong>{(d.y + d.x) / 2}%</strong>]
+                    ]} />
+                  </Paper>
+                ))} />
+            </> : <Spinner />}
           </Paper>
         </Grid>
       </Grid >
