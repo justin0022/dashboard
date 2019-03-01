@@ -10,14 +10,16 @@ import Paper from '@material-ui/core/Paper'
 import MapChart from '../components/MapChart'
 import createChartCard from '../components/hoc/createChartCard'
 import BarChart from '../components/BarChart'
+import HorizontalBarChart from '../components/HorizontalBarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL, scatterplotURL } from '../data/gistURLs'
 import createTableCard from '../components/hoc/createTableCard'
 import Sankey from '../components/Sankey'
 import Histogram from '../components/Histogram'
+import Scatterplot from '../components/Scatterplot'
 
 const styles = theme => ({
   root: {
@@ -36,11 +38,13 @@ const styles = theme => ({
 
 const LineChartCard = createChartCard(LineChart, EmojiFeedback)
 const BarChartCard = createChartCard(BarChart, EmojiFeedback)
+const HorizontalBarChartCard = createChartCard(HorizontalBarChart)
 const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
 const TableCard = createTableCard(Table, EmojiFeedback)
 const MapChartCard = createChartCard(MapChart)
 const SankeyCard = createChartCard(Sankey)
 const HistogramCard = createChartCard(Histogram)
+const ScatterplotCard = createChartCard(Scatterplot)
 
 const Home = props => {
   const { classes } = props
@@ -52,6 +56,7 @@ const Home = props => {
   const heatmapData = useData(heatmapURL)
   const sankeyData = useData(sankeyURL)
   const histogramData = useData(histogramURL)
+  const scatterplotData = useData(scatterplotURL)
 
   const mapData = {
     heatmapData,
@@ -61,12 +66,22 @@ const Home = props => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
+        <ScatterplotCard
+          data={scatterplotData}
+          classes={classes}
+          xAxisLabel={'Grade %'}
+          yAxisLabel={'Grade %'}>
+          <Typography gutterBottom variant='h6'>Scatterplot</Typography>
+        </ScatterplotCard>
         <LineChartCard data={lineChartData} feedbackId={'lineChartId'} classes={classes} >
           <Typography gutterBottom variant='h6'>Active Users</Typography>
         </LineChartCard>
-        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} >
-          <Typography gutterBottom variant='h6'>Bar Chart</Typography>
+        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} xs={12}>
+          <Typography gutterBottom variant='h6'>Vertical Bar Chart</Typography>
         </BarChartCard>
+        <HorizontalBarChartCard data={barChartData} classes={classes} xs={12}>
+          <Typography gutterBottom variant='h6'>Horizontal Bar Chart</Typography>
+        </HorizontalBarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
         {mapChartData ? heatmapData ? <MapChartCard
           data={mapData} classes={classes}
