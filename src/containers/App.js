@@ -6,7 +6,7 @@ import Student from './Student'
 import Instructor from './Instructor'
 import Home from './Home'
 
-const App = () => {
+function App () {
   const [sideDrawerState, setSideDrawerState] = useState(false)
 
   const user = {

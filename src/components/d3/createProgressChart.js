@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
-const createProgressChart = ({ data, width, height, el, tip }) => {
+function createProgressChart ({ data, width, height, el, tip }) {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()

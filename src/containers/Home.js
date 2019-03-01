@@ -46,7 +46,7 @@ const SankeyCard = createChartCard(Sankey)
 const HistogramCard = createChartCard(Histogram)
 const ScatterplotCard = createChartCard(Scatterplot)
 
-const Home = props => {
+function Home (props) {
   const { classes } = props
 
   const lineChartData = useData(lineChartURL)

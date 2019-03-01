@@ -25,7 +25,8 @@ const styles = theme => ({
   }
 })
 
-const Student = ({ classes }) => {
+function Student (props) {
+  const { classes } = props
   const histogramData = useData(histogramURL)
   return (
     <div className={classes.root}>
