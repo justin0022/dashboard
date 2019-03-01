@@ -1,15 +1,18 @@
 import React from 'react'
+import { renderToString } from 'react-dom/server'
 import useData from '../hooks/useData'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import LineChart from '../components/LineChart'
 import Link from '@material-ui/core/Link'
+import Paper from '@material-ui/core/Paper'
 import MapChart from '../components/MapChart'
 import createChartCard from '../components/hoc/createChartCard'
 import BarChart from '../components/BarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
+import createToolTip from '../util/createToolTip'
 import EmojiFeedback from '../components/EmojiFeedback'
 import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL } from '../data/gistURLs'
 import createTableCard from '../components/hoc/createTableCard'
@@ -65,7 +68,13 @@ const Home = props => {
           <Typography gutterBottom variant='h6'>Bar Chart</Typography>
         </BarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
-        {mapChartData ? heatmapData ? <MapChartCard data={mapData} classes={classes} /> : null : null}
+        {mapChartData ? heatmapData ? <MapChartCard
+          data={mapData} classes={classes}
+          tip={createToolTip(d => renderToString(
+            <Paper className={classes.paper}>
+              {d.properties.name}
+            </Paper>
+          ))} /> : null : null }
         <SankeyCard data={sankeyData} classes={classes} />
         <HistogramCard data={histogramData} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
