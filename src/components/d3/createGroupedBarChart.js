@@ -3,7 +3,7 @@ import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 import { getValues, flatten } from '../../util/array'
 
-const createGroupedBarChart = ({ data, width, height, tip, el }) => {
+function createGroupedBarChart ({ data, width, height, tip, el }) {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x0 = d3.scaleBand()

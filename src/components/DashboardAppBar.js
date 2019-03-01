@@ -38,7 +38,7 @@ const styles = theme => ({
   }
 })
 
-const DashboardAppBar = props => {
+function DashboardAppBar (props) {
   const { classes, onMenuBarClick, sideDrawerState, user } = props
 
   // const [notificationEl, setNotificationEl] = useState(null)

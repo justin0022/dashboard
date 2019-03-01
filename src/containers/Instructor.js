@@ -35,7 +35,7 @@ const styles = theme => ({
   }
 })
 
-const Instructor = props => {
+function Instructor (props) {
   const { classes } = props
   const [course, setCourse] = useState('PHIL 101')
   const [xAxisAssignment, setXAxisAssignment] = useState('Assignment 1')

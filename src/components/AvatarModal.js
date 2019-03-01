@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 })
 
-const AvatarModal = props => {
+function AvatarModal (props) {
   const {
     classes,
     user
