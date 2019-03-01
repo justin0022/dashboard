@@ -3,16 +3,16 @@ import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
 const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
-  margin.left = 120
-  const [aWidth, aHeight] = adjustViewport(width, height, margin)
+  const modifiedMargin = { ...margin, left: 120 }
+  const [aWidth, aHeight] = adjustViewport(width, height, modifiedMargin)
 
   const x = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.data)]).nice()
-    .range([margin.left, aWidth - margin.right])
+    .range([modifiedMargin.left, aWidth - modifiedMargin.right])
 
   const y = d3.scaleBand()
     .domain(data.map(d => d.label))
-    .range([aHeight - margin.bottom, margin.top])
+    .range([aHeight - modifiedMargin.bottom, modifiedMargin.top])
     .padding(0.1)
 
   const svg = d3.select(el).append('svg')
@@ -29,11 +29,11 @@ const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
     .attr('height', y.bandwidth())
 
   svg.append('g')
-    .attr('transform', `translate(0, ${aHeight - margin.bottom})`)
+    .attr('transform', `translate(0, ${aHeight - modifiedMargin.bottom})`)
     .call(d3.axisBottom(x))
 
   svg.append('g')
-    .attr('transform', `translate(${margin.left},0)`)
+    .attr('transform', `translate(${modifiedMargin.left},0)`)
     .call(d3.axisLeft(y))
 
   if (tip) {
