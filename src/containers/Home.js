@@ -69,7 +69,7 @@ const Home = props => {
         </BarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
         {mapChartData ? heatmapData ? <MapChartCard
-          data={mapData}classes={classes}
+          data={mapData} classes={classes}
           tip={createToolTip(d => renderToString(
             <Paper className={classes.paper}>
               {d.properties.name}

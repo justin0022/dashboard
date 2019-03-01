@@ -4,4 +4,4 @@ export const histogramURL = 'https://gist.githubusercontent.com/justin0022/a9ead
 export const lineChartURL = 'https://gist.githubusercontent.com/justin0022/10ccef7ce6bf43d5fb5024fad43277bd/raw/31d402104f5820b5a07733942d3eb89b6f4eb424/lineChartData.json'
 export const sankeyURL = 'https://gist.githubusercontent.com/justin0022/3488c5c59adfd986c06710cbf5f71ade/raw/ed9c1477a10cb460cd3706f4b2516f78285d3194/sankeyData.json'
 export const mapURL = 'https://gist.githubusercontent.com/soohyunkim/390042da3216ee70d2c08a3ae52c37d6/raw/d2de96f6745323805dc64dbbc5302c9d4bea25e8/worldMap.json'
-export const heatmapURL = 'https://gist.githubusercontent.com/soohyunkim/609376669740065a5e44feb0f1ce8794/raw/d2ee1e12be7b4f125932402118af4813a4cdc56c/randomUSPopulationData.json'
+export const heatmapURL = 'https://gist.githubusercontent.com/soohyunkim/ca94f2f0f347ec1caa4fcb56596dc512/raw/5fb82abcfba82cfcb2af402a1586f08d1906b781/worldPopulation.json'
