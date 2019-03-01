@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper'
 import MapChart from '../components/MapChart'
 import createChartCard from '../components/hoc/createChartCard'
 import BarChart from '../components/BarChart'
+import HorizontalBarChart from '../components/HorizontalBarChart'
 import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
@@ -37,6 +38,7 @@ const styles = theme => ({
 
 const LineChartCard = createChartCard(LineChart, EmojiFeedback)
 const BarChartCard = createChartCard(BarChart, EmojiFeedback)
+const HorizontalBarChartCard = createChartCard(HorizontalBarChart)
 const GroupedBarChartCard = createChartCard(GroupedBarChart, EmojiFeedback)
 const TableCard = createTableCard(Table, EmojiFeedback)
 const MapChartCard = createChartCard(MapChart)
@@ -64,7 +66,7 @@ const Home = props => {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        <ScatterplotCard
+        {/* <ScatterplotCard
           data={scatterplotData}
           classes={classes}
           xAxisLabel={'Grade %'}
@@ -73,11 +75,14 @@ const Home = props => {
         </ScatterplotCard>
         <LineChartCard data={lineChartData} feedbackId={'lineChartId'} classes={classes} >
           <Typography gutterBottom variant='h6'>Active Users</Typography>
-        </LineChartCard>
-        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} >
-          <Typography gutterBottom variant='h6'>Bar Chart</Typography>
+        </LineChartCard> */}
+        <BarChartCard data={barChartData} feedbackId={'barChart'} classes={classes} xs={12}>
+          <Typography gutterBottom variant='h6'>Vertical Bar Chart</Typography>
         </BarChartCard>
-        <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
+        <HorizontalBarChartCard data={barChartData} classes={classes} xs={12}>
+          <Typography gutterBottom variant='h6'>Horizontal Bar Chart</Typography>
+        </HorizontalBarChartCard>
+        {/* <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
         {mapChartData ? heatmapData ? <MapChartCard
           data={mapData} classes={classes}
           tip={createToolTip(d => renderToString(
@@ -116,7 +121,7 @@ const Home = props => {
               </Grid>
             </Grid>
           </Grid>
-        </TableCard>
+        </TableCard> */}
       </Grid>
     </div >
   )
