@@ -15,11 +15,12 @@ import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL, scatterplotURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL, scatterplotURL, donutChartURL } from '../data/gistURLs'
 import createTableCard from '../components/hoc/createTableCard'
 import Sankey from '../components/Sankey'
 import Histogram from '../components/Histogram'
 import Scatterplot from '../components/Scatterplot'
+import DonutChart from '../components/DonutChart'
 
 const styles = theme => ({
   root: {
@@ -45,6 +46,7 @@ const MapChartCard = createChartCard(MapChart)
 const SankeyCard = createChartCard(Sankey)
 const HistogramCard = createChartCard(Histogram)
 const ScatterplotCard = createChartCard(Scatterplot)
+const DonutChartCard = createChartCard(DonutChart)
 
 function Home (props) {
   const { classes } = props
@@ -57,6 +59,7 @@ function Home (props) {
   const sankeyData = useData(sankeyURL)
   const histogramData = useData(histogramURL)
   const scatterplotData = useData(scatterplotURL)
+  const donutData = useData(donutChartURL)
 
   const mapData = {
     heatmapData,
@@ -66,6 +69,11 @@ function Home (props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
+        <DonutChartCard
+          data={donutData}
+          classes={classes}>
+          <Typography gutterBottom variant='h6'>Donut</Typography>
+        </DonutChartCard>
         <ScatterplotCard
           data={scatterplotData}
           classes={classes}
