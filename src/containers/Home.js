@@ -15,7 +15,7 @@ import GroupedBarChart from '../components/GroupedBarChart'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import EmojiFeedback from '../components/EmojiFeedback'
-import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL, scatterplotURL } from '../data/gistURLs'
+import { barChartURL, groupedBarChartURL, lineChartURL, mapURL, sankeyURL, histogramURL, heatmapURL, scatterplotURL, countryFlagURL } from '../data/gistURLs'
 import createTableCard from '../components/hoc/createTableCard'
 import Sankey from '../components/Sankey'
 import Histogram from '../components/Histogram'
@@ -61,6 +61,15 @@ function Home (props) {
   const mapData = {
     heatmapData,
     mapChartData
+  }
+
+  const flagData = heatmapData ? heatmapData.countries.map(c => c.name) : null
+  let countryFlagData = {}
+  if (!flagData) {
+    for (let i = 0; i < flagData.length; i++) {
+      countryFlagData = useData(countryFlagURL + flagData)
+    }
+    console.log(countryFlagData)
   }
 
   return (
