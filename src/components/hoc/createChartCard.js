@@ -19,7 +19,7 @@ const createChartCard = (ChartComponent, EmojiFeedback) => props => {
       <Paper className={classes.paper}>
         {props.children}
         <Grid item xs={12}>
-          {data ? <ChartComponent data={data} /> : <Spinner />}
+          {data ? <ChartComponent data={data} {...props} /> : <Spinner />}
         </Grid>
         {EmojiFeedback !== undefined && data
           ? <EmojiFeedback id={feedbackId} popoverText={'give feedback'} endpoints={emojiEndpoints} />

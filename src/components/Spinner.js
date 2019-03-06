@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Spinner = () => {
+function Spinner () {
   return (
     <div className='spinner' />
   )

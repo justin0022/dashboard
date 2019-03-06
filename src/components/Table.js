@@ -33,7 +33,7 @@ const tableStyle = theme => ({
   }
 })
 
-const CustomTable = props => {
+function CustomTable (props) {
   const { classes, tableHead, tableData } = props
   return (
     <div className={classes.tableResponsive}>

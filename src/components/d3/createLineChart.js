@@ -4,42 +4,7 @@ import { margin } from '../../constants/chartConstants'
 import createSVG from './createSVG'
 import createLine from './createLine'
 
-const anotherLine = [
-  {
-    'label': 0,
-    'data': 4
-  },
-  {
-    'label': 1,
-    'data': 1
-  },
-  {
-    'label': 2,
-    'data': 3
-  },
-  {
-    'label': 3,
-    'data': 2
-  },
-  {
-    'label': 4,
-    'data': 4
-  },
-  {
-    'label': 5,
-    'data': 2.5
-  },
-  {
-    'label': 6,
-    'data': 1
-  },
-  {
-    'label': 7,
-    'data': 4
-  }
-]
-
-const createLineChart = ({ data, width, height, el }) => {
+function createLineChart ({ data, width, height, el }) {
   const [aWidth, aHeight] = adjustViewport(width, height, margin)
 
   const x = d3.scaleLinear()
@@ -61,7 +26,6 @@ const createLineChart = ({ data, width, height, el }) => {
   const svg = createSVG({ el, width, height })
 
   createLine({ svg, x, y, data })
-  createLine({ svg, x, y, data: anotherLine })
 
   svg.append('g')
     .call(xAxis)

@@ -20,7 +20,7 @@ const styles = {
   }
 }
 
-const sideDrawer = props => {
+function sideDrawer (props) {
   const {
     classes,
     toggleDrawer,

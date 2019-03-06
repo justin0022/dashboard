@@ -1,6 +1,6 @@
 import * as d3 from 'd3'
 
-const createLine = ({ svg, x, y, data }) => {
+function createLine ({ svg, x, y, data }) {
   const line = d3.line()
     .defined(d => !isNaN(d.data))
     .x(d => x(d.label))

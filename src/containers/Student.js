@@ -25,14 +25,15 @@ const styles = theme => ({
   }
 })
 
-const Student = ({ classes }) => {
+function Student (props) {
+  const { classes } = props
   const histogramData = useData(histogramURL)
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom className={classes.chartTitle}>Grade Distribution</Typography >
+            <Typography variant='h5' gutterBottom >Grade Distribution</Typography >
             {histogramData
               ? <>
                 <Grid item xs={12} sm={4} lg={2}>
@@ -60,7 +61,7 @@ const Student = ({ classes }) => {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant='h5' gutterBottom className={classes.chartTitle}>Assignment Planning</Typography >
+            <Typography variant='h5' gutterBottom >Assignment Planning</Typography >
           </Paper>
         </Grid>
       </Grid>

@@ -2,17 +2,18 @@ import * as d3 from 'd3'
 import { adjustViewport } from '../../util/chart'
 import { margin } from '../../constants/chartConstants'
 
-const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
-  const [aWidth, aHeight] = adjustViewport(width, height, margin)
+function createHorizontalBarChart ({ data, width, height, el, tip }) {
+  const modifiedMargin = { ...margin, left: 120 }
+  const [aWidth, aHeight] = adjustViewport(width, height, modifiedMargin)
 
-  const x = d3.scaleBand()
-    .domain(data.map(d => d.label))
-    .range([margin.left, aWidth - margin.right])
-    .padding(0.1)
-
-  const y = d3.scaleLinear()
+  const x = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.data)]).nice()
-    .range([aHeight - margin.bottom, margin.top])
+    .range([modifiedMargin.left, aWidth - modifiedMargin.right])
+
+  const y = d3.scaleBand()
+    .domain(data.map(d => d.label))
+    .range([aHeight - modifiedMargin.bottom, modifiedMargin.top])
+    .padding(0.1)
 
   const svg = d3.select(el).append('svg')
     .attr('width', aWidth)
@@ -22,17 +23,17 @@ const createHorizontalBarChart = ({ data, width, height, el, tip }) => {
     .data(data).enter()
     .append('rect')
     .attr('class', 'bar')
-    .attr('x', d => x(d.label))
-    .attr('width', x.bandwidth())
-    .attr('y', d => y(d.data))
-    .attr('height', d => y(0) - y(d.data))
+    .attr('x', d => x(0))
+    .attr('width', d => x(d.data) - x(0))
+    .attr('y', d => y(d.label))
+    .attr('height', y.bandwidth())
 
   svg.append('g')
-    .attr('transform', `translate(0, ${aHeight - margin.bottom})`)
+    .attr('transform', `translate(0, ${aHeight - modifiedMargin.bottom})`)
     .call(d3.axisBottom(x))
 
   svg.append('g')
-    .attr('transform', `translate(${margin.left},0)`)
+    .attr('transform', `translate(${modifiedMargin.left},0)`)
     .call(d3.axisLeft(y))
 
   if (tip) {
