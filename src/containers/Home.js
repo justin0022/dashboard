@@ -98,7 +98,9 @@ function Home (props) {
               {d.properties.name}
             </Paper>
           ))} /> : null : null }
-        <SankeyCard data={sankeyData} classes={classes} />
+        <SankeyCard data={sankeyData} classes={classes}>
+          <Typography gutterBottom variant='h6'>Sankey</Typography>
+        </SankeyCard>
         <HistogramCard data={histogramData} classes={classes} />
         <TableCard tableHead={['ID', 'Name', 'Salary', 'Country']}
           tableData={[
