@@ -14,7 +14,8 @@ import { histogramURL } from '../data/gistURLs'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 8
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -30,7 +31,7 @@ function Student (props) {
   const histogramData = useData(histogramURL)
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container spacing={16}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom >Grade Distribution</Typography >

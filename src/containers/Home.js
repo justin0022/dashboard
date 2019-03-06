@@ -24,7 +24,8 @@ import DonutChart from '../components/DonutChart'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 8
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -68,7 +69,7 @@ function Home (props) {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container spacing={16}>
         <DonutChartCard
           data={donutData}
           classes={classes}>

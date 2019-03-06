@@ -20,7 +20,8 @@ import { VictoryBoxPlot, VictoryChart } from 'victory'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 8
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -55,7 +56,7 @@ function Instructor (props) {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container spacing={16}>
         <Grid item xs={12}>
           <FormControl className={classes.formControl}>
             <InputLabel>Courses</InputLabel>

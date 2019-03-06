@@ -6,7 +6,8 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 8
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -17,7 +18,7 @@ const styles = theme => ({
 function Help ({ classes }) {
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container spacing={16}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom className={classes.chartTitle}>Help</Typography >
