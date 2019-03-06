@@ -30,7 +30,7 @@ function Student (props) {
   const histogramData = useData(histogramURL)
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
+      <Grid container>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography variant='h5' gutterBottom >Grade Distribution</Typography >
