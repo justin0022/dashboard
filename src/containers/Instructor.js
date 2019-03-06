@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useData from '../hooks/useData'
+import useFetch from '../hooks/useFetch'
 import { withStyles } from '@material-ui/core/styles'
 import { renderToString } from 'react-dom/server'
 import Grid from '@material-ui/core/Grid'
@@ -42,9 +42,9 @@ function Instructor (props) {
   const [course, setCourse] = useState('PHIL 101')
   const [xAxisAssignment, setXAxisAssignment] = useState('Assignment 1')
   const [yAxisAssignment, setYAxisAssignment] = useState('Assignment 1')
-  const scatterplotData = useData(scatterplotURL)
-  const mapChartData = useData(mapURL)
-  const heatmapData = useData(heatmapURL)
+  const scatterplotData = useFetch(scatterplotURL)
+  const mapChartData = useFetch(mapURL)
+  const heatmapData = useFetch(heatmapURL)
   const horizontalBarChartData = heatmapData ? heatmapData.countries
     .map(({ name, population }) => ({ label: name, data: population }))
     .sort((a, b) => a.data - b.data) : null

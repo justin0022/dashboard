@@ -3,7 +3,7 @@ import get from '../service/api'
 
 const cache = new Map()
 
-const useData = dataURL => {
+const useFetch = dataURL => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const useData = dataURL => {
   return data
 }
 
-export default useData
+export default useFetch

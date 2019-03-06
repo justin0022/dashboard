@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import useData from '../hooks/useData'
+import useFetch from '../hooks/useFetch'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -52,15 +52,15 @@ const DonutChartCard = createChartCard(DonutChart)
 function Home (props) {
   const { classes } = props
 
-  const lineChartData = useData(lineChartURL)
-  const groupedBarChartData = useData(groupedBarChartURL)
-  const barChartData = useData(barChartURL)
-  const mapChartData = useData(mapURL)
-  const heatmapData = useData(heatmapURL)
-  const sankeyData = useData(sankeyURL)
-  const histogramData = useData(histogramURL)
-  const scatterplotData = useData(scatterplotURL)
-  const donutData = useData(donutChartURL)
+  const lineChartData = useFetch(lineChartURL)
+  const groupedBarChartData = useFetch(groupedBarChartURL)
+  const barChartData = useFetch(barChartURL)
+  const mapChartData = useFetch(mapURL)
+  const heatmapData = useFetch(heatmapURL)
+  const sankeyData = useFetch(sankeyURL)
+  const histogramData = useFetch(histogramURL)
+  const scatterplotData = useFetch(scatterplotURL)
+  const donutData = useFetch(donutChartURL)
 
   const mapData = {
     heatmapData,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import useData from '../hooks/useData'
+import useFetch from '../hooks/useFetch'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -28,7 +28,7 @@ const styles = theme => ({
 
 function Student (props) {
   const { classes } = props
-  const histogramData = useData(histogramURL)
+  const histogramData = useFetch(histogramURL)
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
