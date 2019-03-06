@@ -36,7 +36,7 @@ const styles = theme => ({
   }
 })
 
-function Instructor(props) {
+function Instructor (props) {
   const { classes } = props
   const [course, setCourse] = useState('PHIL 101')
   const [xAxisAssignment, setXAxisAssignment] = useState('Assignment 1')
@@ -55,7 +55,7 @@ function Instructor(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
+      <Grid container>
         <Grid item xs={12}>
           <FormControl className={classes.formControl}>
             <InputLabel>Courses</InputLabel>

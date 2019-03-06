@@ -68,7 +68,7 @@ function Home (props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={16}>
+      <Grid container>
         <DonutChartCard
           data={donutData}
           classes={classes}>
