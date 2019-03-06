@@ -6,3 +6,4 @@ export const sankeyURL = 'https://gist.githubusercontent.com/justin0022/3488c5c5
 export const mapURL = 'https://gist.githubusercontent.com/soohyunkim/390042da3216ee70d2c08a3ae52c37d6/raw/d2de96f6745323805dc64dbbc5302c9d4bea25e8/worldMap.json'
 export const heatmapURL = 'https://gist.githubusercontent.com/soohyunkim/ca94f2f0f347ec1caa4fcb56596dc512/raw/5fb82abcfba82cfcb2af402a1586f08d1906b781/worldPopulation.json'
 export const scatterplotURL = 'https://gist.githubusercontent.com/justin0022/584d6205a28436c93fe68cfa57d38873/raw/7a0131137cff5f7351c86631c74381b2f997da6d/scatterplotData.json'
+export const donutChartURL = 'https://gist.githubusercontent.com/justin0022/291339a15f918be4081472a324eac941/raw/4a3dfef5e71b44c7b077f8b30c23751586a4dc55/donutChartUrl.json'

@@ -5,6 +5,7 @@ import SideDrawer from '../components/SideDrawer'
 import Student from './Student'
 import Instructor from './Instructor'
 import Home from './Home'
+import Help from './Help'
 
 function App () {
   const [sideDrawerState, setSideDrawerState] = useState(false)
@@ -24,6 +25,7 @@ function App () {
         <Route path='/' exact component={Home} />
         <Route path='/Instructor/' component={Instructor} />
         <Route path='/Student/' component={Student} />
+        <Route path='/Help/' component={Help} />
       </div>
     </Router>
   )
