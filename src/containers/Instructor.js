@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
-import Scatterplot from '../components/Scatterplot'
+import ScatterplotWithRegressionLine from '../components/ScatterplotWithRegressionLine'
 import Table from '../components/Table'
 import createToolTip from '../util/createToolTip'
 import Spinner from '../components/Spinner'
@@ -167,7 +167,7 @@ function Instructor (props) {
               </Select>
             </FormControl>
             {scatterplotData ? <>
-              <Scatterplot
+              <ScatterplotWithRegressionLine
                 data={scatterplotData}
                 aspectRatio={0.5}
                 xAxisLabel={xAxisAssignment}
