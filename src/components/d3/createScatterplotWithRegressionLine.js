@@ -17,6 +17,17 @@ function createScatterplotWithRegressionLine ({ data, width, height, el, tip, xA
     .attr('width', aWidth)
     .attr('height', aHeight)
 
+  const regressionLine = calcLinear(data)
+
+  svg.append('line')
+    .attr('stroke', 'steelblue')
+    .attr('stroke-width', 1.5)
+    .attr('stroke-dasharray', 2, 1)
+    .attr('x1', x(regressionLine.ptA.x))
+    .attr('y1', y(regressionLine.ptA.y))
+    .attr('x2', x(regressionLine.ptB.x))
+    .attr('y2', y(regressionLine.ptB.y))
+
   const circle = svg.selectAll('.dot')
     .data(data).enter()
     .append('circle')
@@ -63,6 +74,49 @@ function createScatterplotWithRegressionLine ({ data, width, height, el, tip, xA
     circle
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
+  }
+
+  function calcLinear (data) {
+    let n = data.length
+    let dataPoints = []
+    data.forEach((d) => {
+      let obj = {}
+      obj.x = d['x']
+      obj.y = d['y']
+      obj.mult = obj.x * obj.y
+      dataPoints.push(obj)
+    })
+
+    // Let a = n times the summation of all x-values multiplied by their corresponding y-values
+    // Let b = sum of all x-values times the sum of all y-values
+    // Let c = n times the sum of all squared x-values
+    // Let d = squared sum of all x-values
+    let sum = 0
+    let xSum = 0
+    let ySum = 0
+    let sumSq = 0
+    dataPoints.forEach((pt) => {
+      sum = sum + pt.mult
+      xSum = xSum + pt.x
+      ySum = ySum + pt.y
+      sumSq = sumSq + (pt.x * pt.x)
+    })
+    let a = sum * n
+    let b = xSum * ySum
+    let c = sumSq * n
+    let d = xSum * xSum
+    let m = (a - b) / (c - d)
+    let yIntercept = (ySum - m * xSum) / n
+    return {
+      ptA: {
+        x: 0,
+        y: yIntercept
+      },
+      ptB: {
+        y: 100,
+        x: (100 - yIntercept) / m
+      }
+    }
   }
 }
 
