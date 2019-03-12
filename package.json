@@ -128,6 +128,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
+    "jest-cli": "^24.5.0",
     "standard": "^12.0.1"
   }
 }
