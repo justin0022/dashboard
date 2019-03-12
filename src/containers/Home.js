@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import useFetch from '../hooks/useFetch'
+import useFetchAll from '../hooks/useFetchAll'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -52,20 +52,29 @@ const DonutChartCard = createChartCard(DonutChart)
 function Home (props) {
   const { classes } = props
 
-  const lineChartData = useFetch(lineChartURL)
-  const groupedBarChartData = useFetch(groupedBarChartURL)
-  const barChartData = useFetch(barChartURL)
-  const mapChartData = useFetch(mapURL)
-  const heatmapData = useFetch(heatmapURL)
-  const sankeyData = useFetch(sankeyURL)
-  const histogramData = useFetch(histogramURL)
-  const scatterplotData = useFetch(scatterplotURL)
-  const donutData = useFetch(donutChartURL)
+  const homeData = useFetchAll(
+    lineChartURL,
+    groupedBarChartURL,
+    barChartURL,
+    mapURL,
+    heatmapURL,
+    sankeyURL,
+    histogramURL,
+    scatterplotURL,
+    donutChartURL,
+    lineChartURL
+  )
 
-  const mapData = {
-    heatmapData,
-    mapChartData
-  }
+  const lineChartData = homeData ? homeData[0] : null
+  const groupedBarChartData = homeData ? homeData[1] : null
+  const barChartData = homeData ? homeData[2] : null
+  const mapChartData = homeData ? homeData[3] : null
+  const heatmapData = homeData ? homeData[4] : null
+  const mapData = homeData ? { mapChartData, heatmapData } : null
+  const sankeyData = homeData ? homeData[5] : null
+  const histogramData = homeData ? homeData[6] : null
+  const scatterplotData = homeData ? homeData[7] : null
+  const donutData = homeData ? homeData[8] : null
 
   return (
     <div className={classes.root}>
@@ -92,13 +101,13 @@ function Home (props) {
           <Typography gutterBottom variant='h6'>Horizontal Bar Chart</Typography>
         </HorizontalBarChartCard>
         <GroupedBarChartCard data={groupedBarChartData} feedbackId={'groupedBarChart'} classes={classes} />
-        {mapChartData ? heatmapData ? <MapChartCard
+        <MapChartCard
           data={mapData} classes={classes}
           tip={createToolTip(d => renderToString(
             <Paper className={classes.paper}>
               {d.properties.name}
             </Paper>
-          ))} /> : null : null }
+          ))} />
         <SankeyCard data={sankeyData} classes={classes}>
           <Typography gutterBottom variant='h6'>Sankey</Typography>
         </SankeyCard>
